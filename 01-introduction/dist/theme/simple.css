@@ -16,16 +16,16 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
  *********************************************/
 :root {
   --r-background-color: #fff;
-  --r-main-font: Lato, sans-serif;
+  --r-main-font: Ubuntu, sans-serif;
   --r-main-font-size: 40px;
-  --r-main-color: #000;
+  --r-main-color: #353839 ;
   --r-block-margin: 20px;
   --r-heading-margin: 0 0 20px 0;
-  --r-heading-font: News Cycle, Impact, sans-serif;
-  --r-heading-color: #000;
+  --r-heading-font: Ubuntu, sans-serif;
+  --r-heading-color: #353839 ;
   --r-heading-line-height: 1.2;
   --r-heading-letter-spacing: normal;
-  --r-heading-text-transform: none;
+  --r-heading-text-transform: uppercase;
   --r-heading-text-shadow: none;
   --r-heading-font-weight: normal;
   --r-heading1-text-shadow: none;
@@ -34,12 +34,15 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   --r-heading3-size: 1.55em;
   --r-heading4-size: 1em;
   --r-code-font: monospace;
-  --r-link-color: #00008B;
-  --r-link-color-dark: #00003f;
-  --r-link-color-hover: #0000f1;
+  --r-link-color: #a23;
+  --r-link-color-dark: #6a1520;
+  --r-link-color-hover: #dd5566;
   --r-selection-background-color: rgba(0, 0, 0, 0.99);
   --r-selection-color: #fff;
 }
+
+
+
 
 .reveal-viewport {
   background: #fff;
