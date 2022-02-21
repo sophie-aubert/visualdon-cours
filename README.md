@@ -1,3 +1,3 @@
 # heigvd-dataviz
 
-Bienvenue à tout le monde au cours de Visualisation de données 
+Bienvenue à tout le monde au cours de Visualisation de données !
