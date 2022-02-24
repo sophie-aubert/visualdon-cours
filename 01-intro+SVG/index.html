@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Cours 1.0 - Introduction</title>
+
+	<meta name="description" content="Introduction à la visualisation de données, aux outils et aux objectifs du cours">
+	<meta name="author" content="Noemi Romano">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/simple.css" id="theme">
+	<link rel="stylesheet" href="dist/custom.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+			<!-- <img id='logo' src='img/logo.png'/> -->
+
+			<section>
+
+				<h2>Visualisation de données</h2>
+				<code class="heig-red">1. Introduction + SVG</code>
+
+				<br>
+				<br>
+
+				<small id="current_date"></small>
+
+				<script>
+					date = new Date();
+					year = date.getFullYear();
+					month = date.getMonth() + 1;
+					day = date.getDate();
+					const options = {
+						year: 'numeric',
+						month: 'long',
+						day: 'numeric'
+					};
+					document.getElementById("current_date").innerHTML = date.toLocaleDateString('fr-FR', options);
+				</script>
+
+				<br>
+
+
+				<p>Noemi Romano<br>
+					<small> <a href="mailto:noemi.romano@heig-vd.ch" style="color:grey">noemi.romano@heig-vd.ch</a></small> </p>
+			</section>
+
+
+
+			<section>
+				<h3><span class="heig-red">Qu'est-ce que </span>la visualisation de données ?</h3>
+				<p>
+				</p>
+			</section>
+
+
+			<section>
+
+				Représentation graphique (<code class="heig-red">visualisation</code>) de l'information (<code class="heig-red">données</code>)
+
+			</section>
+
+
+
+
+			<section>
+				<h3><span class="heig-red">Pourquoi</span> la visualisation de données ?</h3>
+			</section>
+
+			<section>
+				<p><span class="heig-red">Explorer</span>: trouver les tendances</p>
+				<img src="img/florence.webp" alt="florence" style="background: transparent;" width="130" height="180">
+				<img src="img/1920px-Nightingale-mortality.jpg" alt="mortality" style="background: transparent;" width="800" height="450">
+				<code><small>Diagram of the causes of mortality in the army in the East, Florence Nightingale, 1858</small> </code>
+				<aside class="notes">
+					Quand Florence essayait de convaincre qu'on pourrait prévenir!
+				</aside>
+			</section>
+
+			<section>
+				<p><span class="heig-red">Analyser</span>: tester une hypothèse</p>
+
+				<img src="img/John_Snow.jpg" alt="cholera-john" style="background: transparent;" width="130" height="180">
+				<img src="img/cholera_map.jpg" alt="cholera" style="background: transparent;" width="520" height="520">
+
+				<code><small>L'épidémie choléra de Broad Street, John Snow, 1854</small> </code>
+				<aside class="notes">
+					Quand John snow essayait de convaincre que c'était dû à l'eau contaminée!
+				</aside>
+			</section>
+
+			<section>
+				<p><span class="heig-red">Présenter</span>: raconter une histoire</p>
+				<img src="img/Charles_Joseph_Minard.png" alt="charles" style="background: transparent;" width="140" height="170">
+				<img src="img/minards_map.png" alt="minards" style="background: transparent;" width="800" height="450">
+				<code><small>
+						La Carte figurative des pertes successives en hommes de l’Armée française dans la campagne de Russie en 1812-1813, Charles Joseph Minard, 1869 </small> </code>
+				<aside class="notes">
+					Emblématique depuis sa popularisation par Edward Tufte 1 , la « Carte
+					figurative des pertes successives en hommes de l’armée française dans
+					la campagne de Russie 1812–1813» de Charles Joseph Minard, datée de
+					1869, est fréquemment citée 2 comme la première visualisation de don-
+					nées en raison de la très grande lisibilité dont elle fait preuve malgré son
+					importante densité d’informations. Sur un fond de carte géographique
+					représentant la distance entre Kaunas et Moscou se déroule le trajet aller-
+					retour des armées napoléoniennes. L’épaisseur de la ligne varie en fonction
+					de l’effectif diminuant des soldats français alors que le tragique trajet du
+					retour est augmenté de repères indiquant les températures endurées par
+					la Grande Armée. Cette image tire sa puissante valeur narrative du fait
+					qu’on y lit en un seul coup d’œil plusieurs mois de campagne et qu’on en
+					tire rapidement un enseignement fondamental pour la compréhension de
+					cet épisode historique : les effectifs napoléoniens ont subi une diminution
+					relativement constante due aux maladies, au froid, aux escarmouches
+					avec les troupes russes, alors qu’aucune bataille majeure n’a été perdue
+
+				</aside>
+			</section>
+
+			<section>
+				<h3><span class="heig-red">Fonctions</span> et <span class="heig-red">formes</span> de visualisation</h3>
+			</section>
+
+
+
+			<section>
+				<img src="img/form_and_function_1.svg" width="700" height="700" />
+			</section>
+
+			<section>
+				<img data-id="box" src="img/form_and_function_2.svg" width="350" height="200" />
+				<a href="https://www.scmp.com/infographics/article/1248804/allure-climbing-mount-everest"><img src="img/everest-summit-hillary.jpg" alt="everest" style="background: transparent;" width="350"></a>
+				<code><small>Mount Everest, South China Morning Post</small></code>
+			</section>
+
+			<section>
+				<img src="img/form_and_function_3.svg" width="300" height="200" />
+				<a href="https://www.behance.net/gallery/14283209/European-banks-and-government-debt"><img src="img/giorgia_lupi.jpg" width="600" /></a>
+				<code><small>Banques éuropéennes et dette, Giorgia Lupi </small></code>
+			</section>
+
+			<section>
+				<img src="img/form_and_function_4.svg" width="300" height="200" />
+				<a href="https://www.nytimes.com/interactive/2020/03/22/world/coronavirus-spread.html"><img src="img/ny_times.gif" alt="" width="600" /></a>
+				<code><small>How the virus got out, New York Times </small></code>
+				</video>
+				</video>
+			</section>
+
+
+			<section>
+				<img src="img/form_and_function_5.svg" width="300" height="200" />
+				<a href="https://www.rts.ch/info/suisse/12849342-les-cartes-des-resultats-des-votations-federales-commune-par-commune.html"><img src="img/rts_cartes.gif" alt="" width="600" /></a>
+				<code><small>Votations fédérales, RTS </small></code>
+			</section>
+
+			<section>
+				<img src="img/form_and_function_objectif.svg" width="700" height="700" />
+			</section>
+
+			<section>
+				<h3><span class="heig-red">Quels sont les outils</span> de visualisation de données intéractive ?</h3>
+			</section>
+
+			<section>
+				<img src="img/data-viz-libraries.svg">
+			</section>
+
+
+
+
+			<section>
+				<iframe src="https://d3js.org/" width="800" height="550"></iframe>
+			</section>
+
+
+
+			<section>
+				<h2>Objectifs</h2>
+				<ul>
+					<li>Connaître différentes technologies de visualisation de données dans un navigateur Web</li>
+					<li>Maîtriser la librairie d3.js</li>
+					<li>Connaître une librairie de cartographie web</li>
+					<li>Maîtriser la manipulation des donneés avec JS</li>
+				</ul>
+			</section>
+
+
+			<section>
+				<h2>Evaluation</h2>
+				<img src="img/evaluation.svg">
+				<br>
+				<br>
+				<br>
+
+
+			</section>
+
+			<section>
+				<h2>Projet</h2>
+				<img src="img/project.svg" height="500">
+			</section>
+
+
+
+			<section>
+				<h2>Supports</h2>
+				<ul>
+					<b>COURS</b> <br> <a href="https://cyberlearn.hes-so.ch/course/view.php?id=21037"> Cyberlearn</a> (clef d'inscription <code><b>VisualDon22</b></code> )
+					<br>
+					<br>
+					<b>EXERCICES</b> <br> Repo <a href="https://github.com/romanoe/visualdon-22/blob/main/README.md"> <code>GitHub</code> <i class="fa-brands fa-github"></i></a>
+				</ul>
+			</section>
+
+
+			<section>
+				<h3>Questions?</h3>
+			</section>
+
+
+			<section>
+				<h2>D3 & SVG</h2>
+				<blockquote cite="https://d3js.org/">
+					D3.js is a JavaScript library for manipulating documents based on data. D3 helps you bring data to life using HTML, <b class="heig-red">SVG</b> and CSS
+				</blockquote> </em>
+			</section>
+
+			<section>
+				<h2 class="heig-red">SVG</h2>
+				<span class="heig-red">S</span>calable <span class="heig-red">V</span>ector <span class="heig-red">G</span>raphics <br>
+				(<em>graphique vectoriel adaptable</em>)
+			</section>
+
+			<section>
+				<img src="https://upload.wikimedia.org/wikipedia/commons/d/db/Bitmap_VS_SVG_Fr.svg" alt="">
+			</section>
+
+
+
+			<section>
+				<h2>Système de coordonnées</h2>
+				<svg width="500" viewBox="0 0 100 100">
+					<line x1="10" y1="10" x2="10" y2="90" stroke="black" stroke-width="0.5" />
+					<line x1="10" y1="10" x2="90" y2="10" stroke="black" stroke-width="0.5" />
+					<line x1="50" y1="8" x2="50" y2="10" stroke="black" stroke-width="0.5" />
+					<line x1="8" y1="50" x2="10" y2="50" stroke="black" stroke-width="0.5" />
+					<circle cx="10" cy="10" r="2" fill="red" />
+					<text x="8" y="5" font-size="3">Origine</text>
+					<text x="49" y="5" font-size="3">5</text>
+					<text x="5" y="51" font-size="3">5</text>
+					<circle cx="42" cy="50" r="2" fill="red" />
+					<text x="46" y="50" font-size="3">x: 4 y: 5</text>
+				</svg>
+			</section>
+
+			<section>
+				<h2>Formes et textes</h2>
+				<pre><code data-trim>
+					<svg width="700" height="200">
+						<rect x="0" y="0" width="100" height="100" fill="steelblue" />
+						<circle cx="150" cy="50" r="40" fill="indianred" />
+						<ellipse cx="250" cy="50" rx="30" ry="20" />
+						<line x1="300" y1="0" x2="500" y2="100" stroke="red" /> <br>
+						<text x="500" y="80">Et bien d'autres...</text>
+					</svg>
+				</code></pre>
+
+				<svg width="700" height="150">
+					<rect x="0" y="0" width="100" height="100" fill="steelblue" />
+					<circle cx="150" cy="50" r="40" fill="indianred" />
+					<ellipse cx="250" cy="50" rx="30" ry="20" />
+					<line x1="300" y1="0" x2="500" y2="100" stroke="red" /> <br>
+					<text x="500" y="80">Et bien d'autres...</text>
+				</svg>
+				<section>
+
+				</section>
+			</section>
+
+			<section>
+				<h2>Path</h2>
+				<span class="heig-red">M</span>ove to (<code>M x y</code>) <br>
+				<span class="heig-red">L</span>ine to (<code>L x y</code>) <br>
+				<span class="heig-red">H</span>orizontal line (<code>H x</code>) <br>
+				<span class="heig-red">V</span>ertical line (<code>V y</code>) <br>
+
+
+				<pre><code data-trim >
+						<svg width="200" height="100">
+							<circle cx="0" cy="0" r="2" fill="red" />
+							<path d="M 0 90 L 100 0 H 200 V 100" fill="none" stroke="steelblue" stroke-width="5" />
+						</svg>
+				</code></pre>
+
+
+				<svg width="200" height="100">
+					<circle cx="0" cy="0" r="5" fill="red" />
+					<path d="M 0 90 L 100 0 H 200 V 100" fill="none" stroke="steelblue" stroke-width="5" />
+				</svg>
+
+			</section>
+
+			<section>
+				<h2>Courbes</h2>
+				<pre><code data-trim>
+					<svg width="200" height="100">
+						<path d="M 20 20 L 180 20" fill="none" stroke="steelblue" />
+						<path d="M 20 20 C 40 50 160 50 180 20" fill="none" stroke="indianred" />
+						<circle cx="40" cy="50" r="2" fill="red" />
+						<circle cx="160" cy="50" r="2" fill="red" />
+					</svg>
+			</code></pre>
+
+				<svg width="200" height="100">
+					<path d="M 20 20 L 180 20" fill="none" stroke="steelblue" />
+					<path d="M 20 20 C 40 50 160 50 180 20" fill="none" stroke="indianred" />
+					<circle cx="40" cy="50" r="2" fill="red" />
+					<circle cx="160" cy="50" r="2" fill="red" />
+				</svg>
+			</section>
+
+
+
+			<section>
+				<h2>Groupes</h2>
+				<pre><code data-trim data-line-numbers="2,6" class="r-fit-text">
+					<svg width="200" height="100">
+						<g fill="indianred" stroke="steelblue" stroke-width="2" transform="translate(-50, 20)">
+							<circle cx="50" cy="50" r="30" />
+							<rect x="40" y="40" width="60" height="30" />
+							<text x="100" y="80" font-size="50">VisualDon</text>
+						</g>
+					</svg>
+
+			</code></pre>
+
+				<svg width="500" height="150">
+					<g fill="indianred" stroke="steelblue" stroke-width="2" transform="translate(-50, 20)">
+						<circle cx="150" cy="50" r="30" />
+						<rect x="40" y="40" width="60" height="30" />
+						<text x="100" y="80" font-size="50">VisualDon</text>
+					</g>
+				</svg>
+			</section>
+
+			<section>
+				<h2>Transformation</h2>
+				<small> <code> <b>translate(x,y)</b> </code> </small><br>
+				<small><code> <b>rotate(angle, cx, cy)</b> </code> </small><br>
+				<small> <code> <b>scale(facteur_echelle)</b> </code></small> <br>
+
+
+				<pre><code data-trim data-line-numbers="2,6" class="r-fit-text">
+					<svg width="500" height="150">
+						<g fill="indianred" stroke="steelblue" stroke-width="2" transform="rotate(20, 100, 50)">
+							<circle cx="150" cy="50" r="30" />
+							<rect x="40" y="40" width="60" height="30" />
+							<text x="100" y="80" font-size="50">VisualDon</text>
+						</g>
+					</svg>
+
+			</code></pre>
+
+				<svg width="500" height="150">
+					<g fill="indianred" stroke="steelblue" stroke-width="2" transform="rotate(20, 100, 50)">
+						<circle cx="150" cy="50" r="30" />
+						<rect x="40" y="40" width="60" height="30" />
+						<text x="100" y="80" font-size="50">VisualDon</text>
+					</g>
+				</svg>
+			</section>
+
+<section>
+	<h4>Et maintenant... au boulout!</h4>
+	<img src="img/au_boulot.gif" alt="">
+</section>
+
+
+		</div>
+
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/zoom/zoom.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/search/search.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// Make reveal.js aware of the size change
+		//Reveal.layout();
+
+		// Also available as an ES module, see:
+		// https://revealjs.com/initialization/
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			center: true,
+			hash: false,
+			slideNumber: true,
+			logo: true,
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight]
+		});
+	</script>
+
+</body>
+
+</html>
