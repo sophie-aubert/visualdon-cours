@@ -1,3 +1,3 @@
-# heigvd-dataviz
+# Visualisation de données
 
-Bienvenue à tout le monde au cours de Visualisation de données !
+repo contenant les slides du cours **Visualisation de données** à l'HEIG-VD.

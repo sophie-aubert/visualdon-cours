@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Cours 2 - Intro d3.js</title>
+
+	<meta name="description" content="Introduction à la visualisation de données, aux outils et aux objectifs du cours">
+	<meta name="author" content="Noemi Romano">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/simple.css" id="theme">
+	<link rel="stylesheet" href="dist/custom.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+			<!-- <img id='logo' src='img/logo.png'/> -->
+
+			<section>
+
+				<h2>Visualisation de données</h2>
+				<code class="heig-red">2. Introduction à D3.js</code>
+
+				<br>
+				<br>
+
+				<small id="current_date"></small>
+
+				<script>
+					date = new Date();
+					year = date.getFullYear();
+					month = date.getMonth() + 1;
+					day = date.getDate();
+					const options = {
+						year: 'numeric',
+						month: 'long',
+						day: 'numeric'
+					};
+					document.getElementById("current_date").innerHTML = date.toLocaleDateString('fr-FR', options);
+				</script>
+
+				<br>
+				<p>Noemi Romano<br>
+					<small> <a href="mailto:noemi.romano@heig-vd.ch" style="color:grey">noemi.romano@heig-vd.ch</a></small> </p>
+			</section>
+
+			<section class="fragment">
+				<h2>Semaine passée</h2>
+				<p class="fragment"><span class="heig-red">Fonction</span> Explicative ou exploratoire <br></p>
+				<p class="fragment"><span class="heig-red">Formes</span> Statique ou interactive <br> </p>
+				<p class="fragment"><span class="heig-red">SVG</span> Formes, dessins et transformation </p>
+			</section>
+
+
+			<section>
+					<iframe src="https://d3js.org/" width="800" height="550"></iframe>
+			</section>
+
+			<section>
+				<h2>DOM</h2>
+				<p><span class="heig-red">D</span>ocument <span class="heig-red">O</span>bject <span class="heig-red">M</span>odel</p>
+				<small><blockquote>
+					Le Document Object Model (DOM) est une interface de programmation normalisée par le W3C, qui permet à des scripts d'examiner et de modifier le contenu du navigateur web
+				</blockquote></small>
+				<p class="fragment">(en bref : structure hiérarchique de <code>HTML</code>)</p>
+			</section>
+
+
+			<section>
+				<h2>Syntaxe</h2>
+				<p>Chaînage de méthodes (fonctions)</p>
+
+				<code>
+					<span class="heig-red">objet</span>.methode1() <br>
+						  .methode2() <br>
+						  .methode3()
+				</code>
+				<pre><code >
+					d3.select("body")
+					  .append("p")
+					  .text("Nouveau paragraphe")
+				</code></pre>
+			</section>
+
+
+			<section>
+				<h2>Sélecteurs</h2>
+
+				<code><span class="heig-red">d3</span>.select(<em>sélecteur</em>)</code>
+				<code><span class="heig-red">d3</span>.selectAll(<em>sélecteur</em>)</code>
+
+				<br>
+				<br>
+				<small>
+				<table>
+					<table>
+						<tr>
+							<th></th>
+							<th >CSS</th>
+							<th >Exemple</th>
+						</tr>
+						<tr>
+							<td>type</td>
+							<td><code>element </code></td>
+							<td><code>d3.select('h1')</code></td>
+						</tr>
+						<tr>
+							<td >class</td>
+							<td><code>.class</code></td>
+							<td><code>d3.select('.class')</code></td>
+						</tr>
+						<td>identifiant</td>
+						<td><code>#id</code></td>
+						<td><code>d3.select('#id')</code></td>
+						</tr>
+					</table>
+				</table>
+				</small>
+			</section>
+
+			<section >
+				<h2>Attributs</h2>
+
+				<code>.attr('propriete','valeur')</code>
+				<div  class="row no-margin-top">
+				<div class="col-60">
+
+
+				<pre><code data-trim data-line-numbers="9">
+				<svg class = 'mon-svg'>
+					<circle cx="50%" cy="50%" r="50">
+					</circle>
+				</svg>
+
+				<script data-auto-animate>
+					const svg = d3.select(".mon-svg");
+					const cercle = svg.select("circle");
+					cercle.attr("fill", "#E92528");
+				</script>
+				</code></pre>
+
+				</div>
+
+				<div class="col-20 fig-container no-margin-top" data-file="d3-exemples/cercle.html">
+				</div>
+				</div>
+			</section>
+
+			<section data-auto-animate>
+				<h2>Attributs</h2>
+
+				<code>.attr('propriete','valeur')</code>
+				<div class="row no-margin-top">
+					<div class="col-60">
+				<pre><code data-trim  data-line-numbers="10">
+				<svg class = 'mon-svg'>
+					<circle cx="50%" cy="50%" r="50">
+					</circle>
+				</svg>
+
+				<script>
+					const svg = d3.select(".mon-svg");
+					const cercle = svg.select("circle");
+					cercle.attr("fill", "#E92528");
+					cercle.attr("r", "100");
+				</script>
+				</code></pre>
+
+					</div>
+					<div class="col-20 fig-container no-margin-top" data-file="d3-exemples/cercle-2x.html"></div>
+
+					element.setAttribute()
+				</div>
+			</section>
+
+
+			<section>
+				<h2>Append</h2>
+
+			</section>
+
+
+			<section>
+				<h2>Événements</h2>
+			</section>
+
+			<section>
+				<h2>Projet</h2>
+				<h4 ><span class="heig-red">1. Thématique (11 mars)</span></h4>
+				Trouver un jeu de données <br>
+				Créer un dossier github pour le projet<br>
+				Suivre indications ici <br>
+			</section>
+
+			<section>
+				<h2>Exercices</h2>
+			</section>
+
+		</div>
+
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/zoom/zoom.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/search/search.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/d3/reveald3.js"></script>
+
+	<script>
+		// Make reveal.js aware of the size change
+		// Reveal.layout();
+
+		// Also available as an ES module, see:
+		// https://revealjs.com/initialization/
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			center: true,
+			hash: false,
+			slideNumber: true,
+			logo: true,
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight],
+			// // optional configurations for reveald3
+    reveald3: {
+
+         // If the previous slide is a slide further in the deck (i.e. we come back to
+         // slide from the next slide), by default the last fragment transition will be
+         // triggered to to get the last state of the visualization and simulate the
+         // the state the simulation was in when we left the slide. This can be
+         // discarded.
+         runLastState: true, //default true
+
+         // If a special onSlideChanged transition has been set (if for example the visualization
+         // has been preloaded using the data-preload attribute, and you want a specific transition
+         // to happen only when you arrive on the slide), you can choose the delay with which such
+         // a transition will occur (note that in the case of no data-preload, if no delay is set then
+         // the transition might not occur since the iframe might not be fully loaded yet when the
+         // function is triggered). // default 0.
+         onSlideChangedDelay: 400,
+
+         // This will prefix the path attributes of the source html paths with the given path.
+         // (by default "src" if set to true or with the specified path if string)
+         mapPath: false, // default: false
+
+         // If true, will try to locate the file at a fallback url without the mapPath prefix in case no file is found
+         // at the stipulated url with mapPath
+         tryFallbackURL: false, //default false
+
+         // Checking for file existance has been reported to fail in rare
+         // cases though files did exist. This option is to disable the file checking.
+         //see: https://github.com/gcalmettes/reveal.js-d3/issues/10
+         disableCheckFile: false, //default false,
+    },
+
+    // Reveal.js plugins
+    dependencies: [
+
+        { src: 'plugin/d3/reveald3.js' },
+
+    ]
+		});
+	</script>
+
+</body>
+
+</html>
