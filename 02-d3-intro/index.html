@@ -158,7 +158,7 @@
 
 				</div>
 
-				<div class="col-20 fig-container no-margin-top" data-file="d3-exemples/cercle.html">
+				<div class="col-40 fig-container no-margin-top" data-file="d3-exemples/cercle.html">
 				</div>
 				</div>
 			</section>
@@ -184,7 +184,7 @@
 				</code></pre>
 
 					</div>
-					<div class="col-20 fig-container no-margin-top" data-file="d3-exemples/cercle-2x.html"></div>
+					<div class="col-40 fig-container no-margin-top" data-file="d3-exemples/cercle-2x.html"></div>
 
 					element.setAttribute()
 				</div>
@@ -193,24 +193,88 @@
 
 			<section>
 				<h2>Append</h2>
+				<code>selection.append("element-html")</code>
+				<div class="row no-margin-top">
+					<div class="col-60">
+
+				<pre><code data-trim>
+	<div class = 'mon-svg'></div>
+	<script>
+	const WIDTH = 300
+    const HEIGHT = 100
+
+    const div = d3.select(".my-div")
+                .append("svg")
+                .attr("width", WIDTH)
+                .attr("height", HEIGHT)
+                .append("circle")
+                   .attr("cx", "30%")
+                   .attr("cy", "40%")
+                   .attr("r", "100")
+	</script>
+				</code></pre>
+						</div>
+
+				<div class="col-40 fig-container no-margin-top" data-file="d3-exemples/append.html"></div>
+				</div>
 
 			</section>
 
 
 			<section>
 				<h2>Événements</h2>
+				<code>.on("event", fonctions)</code>
+				<div class="row no-margin-top">
+					<div class="col-60">
+				<pre><code data-trim >
+<svg class = 'mon-svg'>
+	<circle cx="50%" cy="50%" r="100"></circle>
+</svg>
+
+<script>
+	let r = 15
+	const svg = d3.select(".mon-svg");
+	const cercle = svg.select("circle")
+	                  .attr("fill", "#E92528")
+	                  .attr("r", r);
+	cercle.on("click", () => {
+	        r = r + 10;
+	        cercle.attr("r", r);
+	        } )
+</script>
+				</code></pre>
+
+					</div>
+					<div class="col-40 fig-container no-margin-top" data-file="d3-exemples/cercle-click.html"></div>
+
+				</div>
 			</section>
+
+
+			<section>
+			<h2>Joindre les données</h2>
+				<code>.data(données).enter().do_something()</code>
+			</section>
+
 
 			<section>
 				<h2>Projet</h2>
 				<h4 ><span class="heig-red">1. Thématique (11 mars)</span></h4>
 				Trouver un jeu de données <br>
 				Créer un dossier github pour le projet<br>
-				Suivre indications ici <br>
+				Suivre directives <a href="">ici</a> <br>
 			</section>
 
 			<section>
+				<img src="img/data.gif" alt=""> <br>
+
+			</section>
+
+
+			<section>
 				<h2>Exercices</h2>
+				<p><span class="heig-red">Rajouter dossier du cours en upstream</span> <br> <small><code>git remote add upstream git@github.com:romanoe/visualdon-22.git</code></p></small>
+				<p><span class="heig-red">Mettre à jour</span> <br> <small><code>git fetch upstream</code></p></small>
 			</section>
 
 		</div>
@@ -224,7 +288,6 @@
 	<script src="plugin/markdown/markdown.js"></script>
     <script src="plugin/highlight/highlight.js"></script>
     <script src="plugin/d3/reveald3.js"></script>
-
 	<script>
 		// Make reveal.js aware of the size change
 		// Reveal.layout();
