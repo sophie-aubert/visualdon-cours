@@ -203,7 +203,7 @@
 	const WIDTH = 300
     const HEIGHT = 100
 
-    const div = d3.select(".my-div")
+    const div = d3.select(".mon-svg")
                 .append("svg")
                 .attr("width", WIDTH)
                 .attr("height", HEIGHT)
@@ -254,21 +254,80 @@
 			<section>
 			<h2>Joindre les données</h2>
 				<code>.data(données).enter().do_something()</code>
+
+				<div class="row no-margin-top">
+					<div class="col-60">
+<pre><code data-trim >
+
+
+<div class = "my-div"></div>
+
+<script>
+
+  const data = [4, 6, 2, 8, 1]
+
+  const myDiv = d3.select(".my-div");
+  const ul = myDiv.append("ul");
+
+  ul.selectAll("li")
+    .data(data)
+    .enter()
+    .append("li")
+    .text(d => d)
+
+</script>
+</code>
+</pre>
+					</div>
+
+				<div class="col-40 fig-container no-margin-top" data-file="d3-exemples/bind.html"></div>
+
+				</div>
 			</section>
 
+			<section>
+
+				<h2>Types de données</h2>
+				<div class="row">
+					<div class="col-50">
+						<p class="heig-red"><b>Qualitatives</b></p>
+						<ul>
+							<li>Nominales</li>
+							<li>Ordinales</li>
+						</ul>
+					</div>
+					<div class="col-50">
+						<p class="heig-red"><b>Quantitatives</b></p>
+						<ul>
+							<li>Discrètes</li>
+							<li>Continues</li>
+						</ul>
+					</div>
+
+
+				</div>
+				<img src="img/qualitative_quantitative.png" alt="" height="300"> <br>
+
+			</section>
 
 			<section>
 				<h2>Projet</h2>
-				<h4 ><span class="heig-red">1. Thématique (11 mars)</span></h4>
-				Trouver un jeu de données <br>
-				Créer un dossier github pour le projet<br>
-				Suivre directives <a href="">ici</a> <br>
+				<div class="row">
+					<div class="col-60">
+				<h4 ><span class="heig-red">Thématique (11 mars)</span></h4>
+						<ul>
+				<li>Trouver un jeu de données </li>
+				<li>Créer un dossier github pour le projet</li>
+				<li>Suivre directives <a href="https://github.com/romanoe/visualdon-22/tree/main/projet">ici</a> </li>
+						</ul>
+					</div>
+
+					<div class="col-40">
+						<img src="img/data.gif" alt=""> <br>
+					</div>
 			</section>
 
-			<section>
-				<img src="img/data.gif" alt=""> <br>
 
-			</section>
 
 
 			<section>
