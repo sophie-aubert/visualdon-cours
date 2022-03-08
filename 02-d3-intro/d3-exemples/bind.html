@@ -20,11 +20,10 @@
   const ul = myDiv.append("ul");
 
   ul.selectAll("li")
-    .data(data)
-    .enter()
-    .append("li")
-    .text(d => d)
-
+      .data(data)
+      .enter()
+      .append("li")
+      .text((d,i) => 'Valeur: ' + d + ', Index: ' + i)
 </script>
 </body>
 </html>

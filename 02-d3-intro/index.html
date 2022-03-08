@@ -273,7 +273,7 @@
     .data(data)
     .enter()
     .append("li")
-    .text(d => d)
+    .text((d,i) => 'Valeur: ' + d + ', Index: ' + i)
 
 </script>
 </code>
