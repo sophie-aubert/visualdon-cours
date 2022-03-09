@@ -65,113 +65,152 @@
 				<h2>Semaine passée</h2>
 				<p class="fragment"><span class="heig-red">Syntaxe</span> Chaînage de méthodes (fonctions) </p>
 				<p class="fragment"><span class="heig-red">Manipulation du DOM</span> <code>d3.select()</code>, <code>.attr()</code>,<code>.append()</code>,<code>.on('event')</code><br> </p>
-				<p class="fragment"><span class="heig-red">Données</span>   <code>data(données).enter() </code></p>
+				<p class="fragment"><span class="heig-red">Données</span>   <code>data(<em>données</em>).enter() </code></p>
 			</section>
 
-<!--			<section>-->
-<!--				<h2>Types de données</h2>-->
-<!--				<div class="row">-->
-<!--					<div class="col-50">-->
-<!--						<p class="heig-red"><b>Qualitatives</b></p>-->
-<!--						<ul>-->
-<!--							<li>Nominales</li>-->
-<!--							<li>Ordinales</li>-->
-<!--						</ul>-->
-<!--					</div>-->
-<!--					<div class="col-50">-->
-<!--						<p class="heig-red"><b>Quantitatives</b></p>-->
-<!--						<ul>-->
-<!--							<li>Discrètes</li>-->
-<!--							<li>Continues</li>-->
-<!--						</ul>-->
-<!--					</div>-->
-<!--				</div>-->
-<!--				<img src="img/qualitative_quantitative.png" alt="" height="300"> <br>-->
-<!--			</section>-->
-
-
-
-
-
-			<section class="fragment">
+			<section>
 				<h2>Formats</h2>
-				<div class="row">
-					<div class="col-50">
-
-						<ul>
-							<li class="fragment">csv</li>
-							<li class="fragment">json</li>
-							<li class="fragment">tsv</li>
-							<li class="fragment">xml</li>
-							<li class="fragment">...</li>
-						</ul>
-					</div>
-					<div class="col-50">
-
-					</div>
-				</div>
 			</section>
+
+
+			<section >
+						<h3><span class = "heig-red">CSV</span>  <br><small>(Comma-Separated Values)</small></h3>
+						<img src="img/csv.svg" alt="" >
+			</section>
+
+			<section >
+						<h3><span class = "heig-red">JSON</span> <br><small>(JavaScript Object Notation)</small></h3>
+						<img src="img/json.svg" alt="" height="450">
+			</section>
+
+			<section >
+				<h3><span class = "heig-red">TSV</span>  <br><small>(Tab-Separated Values)</small></h3>
+					<img src="img/tsv.svg" alt="" >
+			</section>
+
+
+			<section>
+						<h3><span class = "heig-red">XML</span>  <br><small>(eXtensible Markup Language)</small></h3>
+						<img src="img/xml.svg" height="500">
+			</section>
+
 			<section>
 				<h2>Charger les données</h2>
+
+			</section>
+
+			<section>
+
 				<div class="row">
 					<div class="col-50">
-						d3.csv('LECSV.csv', fonction_qui_formatte_donnees)
-						.then( function(data) {
-						// data is now whole data set
-						// draw chart in here!
-						})
-						.catch(function(error){
-						// handle error if something goes wrong with loading the data
-						})
+						<h3><span class="heig-red">CSV</span></h3>
+
+						<pre> <code>d3.csv('chemin/du/fichier.csv')
+		   .then( function(data) {
+		   // Dessiner ici!
+			  })
+		   .catch(function(error){
+		   // Gérer l'erreur ici!
+			})
+						</code>
+						</pre>
+
 
 					</div>
 					<div class="col-50">
+						<h3><span class="heig-red">JSON</span></h3>
+
+						<pre> <code>d3.json('url/ou/chemin/du/fichier.json')
+		   .then( function(data) {
+		   // Dessiner ici!
+			  })
+		   .catch(function(error){
+		   // Gérer l'erreur ici!
+			})
+						</code>
+						</pre>
+
 
 					</div>
 				</div>
 			</section>
 
 			<section>
-				<h2>Manipuler les données</h2>
+					<h2>Manipuler les données</h2>
+			</section>
 
+			<section >
+				<h3><span class = "heig-red"><code>.map()</code></span></h3>
 				<div class="row">
-					<div class="col-50">
-						<p class="fragment"><span class="heig-red"><code>.map()</code></span> <small>const fruitNames = collection.map((item, index) => {
-							return item.name;
-							});</small> </p>
-						<p class="fragment"><span class="heig-red"><code>.filter()</code></span> <code>const fruitNames = collection.map((item, index) => {
-							return item.name;
-							});</code><br> </p>
-						<p class="fragment"><span class="heig-red"><code>.reduce()</code></span>   <code>data(données).enter() </code></p>
-
-						<a href="https://applandeo.com/blog/functional-like-data-manipulation-javascript/">Bad apples</a>
+					<div class="col-25">
+						<img src="img/csv.svg" alt="" >
 					</div>
-					<div class="col-50">
+					<div class="col-75">
+					<pre><code data-line-numbers="3-5,11">d3.csv('chemin/du/fichier.csv')
+		.then( function(data) {
+				const prenoms = data.map((d, i) => {
+				return d.prenom;
+			    	});
+			 	})
+		.catch(function(error){
+				console.log(error);
+				})
 
+	// ["Alphonse","Béatrice","Charlotte"]
+					</code></pre>
 					</div>
-				</div>
 			</section>
 
-			<section>
-				.map()
+			<section >
+				<h3><span class = "heig-red"><code>.filter()</code></span></h3>
+				<div class="row">
+					<div class="col-25">
+						<img src="img/csv.svg" alt="" >
+					</div>
+					<div class="col-75">
+					<pre><code data-line-numbers="3-6,11">d3.csv('chemin/du/fichier.csv')
+		.then( function(data) {
+				const now = 2022;
+				const retraite = data.filter((d, i) => {
+						retraite = now - d.anne_naissance;
+						return retraite > 65 ;
+			    	});
+			 	})
+		.catch(function(error){
+				console.log(error);
+				})
+
+	// ["Charlotte", 1988]
+					</code></pre>
+					</div>
 			</section>
 
+			<section >
+				<h3><span class = "heig-red"><code>.reduce()</code></span></h3>
+				<div class="row">
+					<div class="col-25">
+						<img src="img/csv.svg" alt="" >
+					</div>
+					<div class="col-75">
+					<pre><code data-line-numbers="3-5,11">d3.csv('chemin/du/fichier.csv')
+		.then( function(data) {
+				const somme_annees = data.reduce((accumulateur, d) => {
+				accumulateur + d.annee_naissance, 0
+			    	});
+			 	})
+		.catch(function(error){
+				console.log(error);
+				})
 
-			<section>
-				.filter()
-			</section>
-
-
-
-			<section>
-				.reduce()
+	// 5884
+					</code></pre>
+					</div>
 			</section>
 
 			<section>
 				<h2>Projet</h2>
-				<ul>
-					<li>Données ?</li>
-					<li></li></ul>
+				<p>Ce soir: Thématique</p>
+				<p>18 mars: Wireframe</p>
 			</section>
 
 
