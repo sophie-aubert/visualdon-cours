@@ -140,7 +140,7 @@
 			</section>
 
 			<section >
-				<h3><span class = "heig-red"><code>.map()</code></span></h3>
+				<h5><code>array.<span class = "heig-red">map(function(currentValue, index, arr), thisValue)</span></code></h5>
 				<div class="row">
 					<div class="col-25">
 						<img src="img/csv.svg" alt="" >
@@ -162,7 +162,7 @@
 			</section>
 
 			<section >
-				<h3><span class = "heig-red"><code>.filter()</code></span></h3>
+				<h5><code>array.<span class = "heig-red">filter(condition)</span></code></h5>
 				<div class="row">
 					<div class="col-25">
 						<img src="img/csv.svg" alt="" >
@@ -186,16 +186,17 @@
 			</section>
 
 			<section >
-				<h3><span class = "heig-red"><code>.reduce()</code></span></h3>
+				<h5><code>array.<span class = "heig-red">reduce(function(total, currentValue, currentIndex, arr), initialValue)</span></code></h5>
 				<div class="row">
 					<div class="col-25">
 						<img src="img/csv.svg" alt="" >
 					</div>
 					<div class="col-75">
-					<pre><code data-line-numbers="3-5,11">d3.csv('chemin/du/fichier.csv')
+					<pre><code>d3.csv('chemin/du/fichier.csv')
 		.then( function(data) {
-				const somme_annees = data.reduce((accumulateur, d) => {
-				accumulateur + d.annee_naissance, 0
+				const start = 0;
+				const somme_annees = data.reduce((r, d) => {
+				r + d.annee_naissance, start
 			    	});
 			 	})
 		.catch(function(error){
@@ -207,12 +208,71 @@
 					</div>
 			</section>
 
-			<section>
-				<h2>Projet</h2>
-				<p>Ce soir: Thématique</p>
-				<p>18 mars: Wireframe</p>
+
+			<section >
+				<h5><code>array.<span class = "heig-red">reduce(function(total, currentValue, currentIndex, arr), initialValue)</span></code></h5>
+				<div class="row">
+					<div class="col-25">
+						<img src="img/json_reduce.svg" alt="" >
+					</div>
+					<div class="col-75">
+					<pre><code>d3.json('chemin/du/fichier.json')
+		.then( function(data) {
+				const notesParEleve = data.reduce((r, d) => {
+  				const notes = r[d.nom] || []
+  				return { ...r, [d.nom]: [...notes, d.note] }
+			}, {})
+
+			 	})
+		.catch(function(error){
+				console.log(error);
+				})
+		// { Alice: [5, 6], Bob: [4, 3] }
+
+
+					</code></pre>
+					</div>
 			</section>
 
+			<section>
+				<h2>Projet</h2>
+				<h4 ><span class="heig-red">Wireframe (18 mars)</span></h4>
+
+				<div class="row">
+
+
+					<div class="col-60">
+
+						<img src="img/sketch1.jpg" alt="">
+
+
+					</div>
+
+					<div class="col-40">
+						<img src="img/figma.png" alt="">
+						<img src="img/invision-logo-square.png" alt="">
+
+
+
+					</div>
+				</div>
+
+			</section>
+
+
+
+			<section>
+				<h2>Exemples</h2>
+				<ul>
+					<li>
+						<a href="http://www.bmdata.co.uk/titanic/">Titanic</a>
+					</li>
+					<li><a href="https://projects.two-n.com/world-gender/">Global gender gap</a></li>
+					<li><a href="http://rhythm-of-food.net/">The Rythm of food</a></li>
+					<li><a href="https://qz.com/296941/interactive-graphic-every-active-satellite-orbiting-earth/">Satellites</a></li>
+				</ul>
+
+			</section>
 
 			<section>
 				<h2>Exercices</h2>
