@@ -173,6 +173,16 @@
 				const now = 2022;
 				const retraite = data.filter((d, i) => {
 						retraite = now - d.anne_naissance;
+						return retraite >	 65 ;
+			    	});
+			 	})
+		.catch(function(error){
+				console.log(error);
+				})d3.csv('chemin/du/fichier.csv')
+		.then( function(data) {
+				const now = 2022;
+				const retraite = data.filter((d, i) => {
+						retraite = now - d.anne_naissance;
 						return retraite > 65 ;
 			    	});
 			 	})
@@ -180,7 +190,7 @@
 				console.log(error);
 				})
 
-	// ["Charlotte", 1988]
+	// ["Alphonse", 1932]
 					</code></pre>
 					</div>
 			</section>
@@ -219,7 +229,7 @@
 					<pre><code>d3.json('chemin/du/fichier.json')
 		.then( function(data) {
 				const notesParEleve = data.reduce((r, d) => {
-  				const notes = r[d.nom] || []
+  				const notes =   || []
   				return { ...r, [d.nom]: [...notes, d.note] }
 			}, {})
 
@@ -251,9 +261,6 @@
 					<div class="col-40">
 						<img src="img/figma.png" alt="">
 						<img src="img/invision-logo-square.png" alt="">
-
-
-
 					</div>
 				</div>
 
