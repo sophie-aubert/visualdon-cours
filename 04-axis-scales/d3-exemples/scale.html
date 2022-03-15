@@ -11,11 +11,15 @@
 </head>
 <body>
 
+<!-- Add a svg area, empty -->
+<svg id="viz_area2" height=200 width=700></svg>
+
 <svg id="viz_area" height=200 width=700></svg>
 
-
 <script>
-    const svg = d3.select('#viz_area');
+
+    const svg = d3.select("#viz_area")
+    const svg2 = d3.select("#viz_area2")
 
 
     // Echelle
@@ -23,9 +27,12 @@
         .domain([0, 100])
         .range([0, 400]);
 
-
-    svg.call(d3.axisBottom(x));
-
+    svg2.append("circle")
+        .attr("cx", 10).attr("cy", 100).attr("r", 40).style("fill", "blue");
+    svg2.append("circle")
+        .attr("cx", 50).attr("cy", 100).attr("r", 40).style("fill", "red");
+    svg2.append("circle")
+        .attr("cx", 100).attr("cy", 100).attr("r", 40).style("fill", "green");
 
     // Position des cercles x(position)
     svg.append("circle")
@@ -34,6 +41,9 @@
         .attr("cx", x(50)).attr("cy", 100).attr("r", 40).style("fill", "red");
     svg.append("circle")
         .attr("cx", x(100)).attr("cy", 100).attr("r", 40).style("fill", "green");
+
+
+
 
 </script>
 </body>

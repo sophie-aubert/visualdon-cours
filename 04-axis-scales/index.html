@@ -109,22 +109,27 @@
 
 			<section>
 				<h3><code >d3.<span class="heig-red">scaleLinear() </span></code></h3>
+				<p>Données quantitatives continues</p>
 			</section>
 
 
 			<section>
 				<h3><code >d3.<span class="heig-red">scaleTime() </span></code></h3>
+				<p>Données temporelles </p>
 			</section>
 
 			<section>
 				<h3><code >d3.<span class="heig-red">scalePow() </span></code></h3>
+				<p>Pour marquer les différences</p>
 			</section>
 			<section>
 				<h3><code >d3.<span class="heig-red">scaleOrdinal() </span></code></h3>
+				<p>Pour des données qualitatives</p>
 			</section>
 
 			<section>
 				<h3><code >d3.<span class="heig-red">scaleSqrt() </span></code></h3>
+				<p>A utiliser avec des cercles</p>
 			</section>
 
 
@@ -132,8 +137,54 @@
 
 
 			<section>
-			<h3>Domaines & Gammes</h3>
+			<h2><code class="heig-red">.domain()</code> & <code class="heig-red">.range()</code></h2>
+
+				<div class="row">
 				<img src="img/domain_range.svg" alt="" >
+				</div>
+			</section>
+
+			<section><h2>Exemple</h2>
+				<div class = "row">
+					<div class="col-50">
+
+						<small>
+	<pre><code>
+		...
+svg.append("circle")
+	.attr("cx", 10)
+	.attr("cy", 100)
+	.attr("r", 40)
+	.style("fill", "blue");
+
+svg.append("circle")
+	.attr("cx", 50)
+	.attr("cy", 100)
+	.attr("r", 40)
+	.style("fill", "red");
+		...
+						</code></pre>
+
+
+						<pre><code data-line-numbers="1-4,7-8">
+const x = d3.scaleLinear()
+			.domain([0, 100])
+			.range([0, 400]);
+
+svg.append("circle")
+		.attr("cx", x(10))
+		.attr("cy", x(100))
+		.attr("r", 40)
+		.style("fill", "blue");
+						</code></pre>
+						</small>
+					</div>
+					<div class="col-50">
+						<div class = "fig-container no-margin-top" data-file="d3-exemples/scale.html"></div>
+
+					</div>
+				</div>
+
 			</section>
 
 
@@ -144,35 +195,53 @@
 
 			</section>
 
+
 <section>
-	<h2><code>.call()</code></h2>
-	<section>
-		<div class="row">
-			<div class="col-70">
-<pre><code>// Echelle
-	const echelle = d3.scaleLinear()
-	                  .domain([0,200])
-	                  .range([0,20])
-	// Axe x
-	const xAxis = d3.axisBottom(echelle)
-	// Dessiner l'axe
-	svg.append('g')
-	   .call(xAxis)
+	<h2>Axes</h2>
+	<div class="row">
+		<div class="col-50">
+		<h5 class="heig-red">Création</h5>
+	<code>const axe = <br>d3.<span class="heig-red">axisBottom(</span>echelle<span class="heig-red">)</span></code>
+		</div>
 
-					</code></pre>
-			</div>
+		<div class="col-50">
+		<h5 class="heig-red">Dessin</h5>
+			<code>selecteur <br>.append('g')<br><span class="heig-red">.call(</span>axe<span class="heig-red">)</span></code>
+		</div>
 
-			<div class="col-30">
-				<div class = "fig-container no-margin-top" data-file="d3-exemples/axes.html"></div>
-			</div>
-
-
-	</section>
+	</div>
 </section>
+
+			<section><h2>Exemple</h2>
+				<div class = "row">
+					<div class="col-50">
+
+
+							<pre><code data-line-numbers="6">
+const x = d3.scaleLinear()
+			.domain([0, 100])
+			.range([0, 400]);
+
+svg.call(d3.axisBottom(x));
+
+svg.append("circle")
+		.attr("cx", x(10))
+		.attr("cy", x(100))
+		.attr("r", 40)
+		.style("fill", "blue");
+						</code></pre>
+					</div>
+					<div class="col-50">
+						<div class = "fig-container no-margin-top" data-file="d3-exemples/axes.html"></div>
+					</div>
+				</div>
+			</section>
+
 
 
 			<section>
-				<h2>Positionner les axes</h2>
+				<h2>Marges & Translations</h2>
+				<ul></ul>
 			</section>
 
 
