@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="margin_translation_data/d3_002.js"></script>
+    <script src="margin_translation_data/d3.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+
+<!-- Add a svg area, empty -->
+<div id="Area"><svg width="576" height="406.5"><g transform="translate(40,50)"><g transform="translate(0,306.5)" fill="none" font-size="10" font-family="sans-serif" text-anchor="middle"><path class="domain" stroke="currentColor" d="M0.5,6V0.5H496.5V6"></path><g class="tick" opacity="1" transform="translate(0.5,0)"><line stroke="currentColor" y2="6"></line><text fill="currentColor" y="9" dy="0.71em">0</text></g><g class="tick" opacity="1" transform="translate(50.1,0)"><line stroke="currentColor" y2="6"></line><text fill="currentColor" y="9" dy="0.71em">10</text></g><g class="tick" opacity="1" transform="translate(99.7,0)"><line stroke="currentColor" y2="6"></line><text fill="currentColor" y="9" dy="0.71em">20</text></g><g class="tick" opacity="1" transform="translate(149.29999999999998,0)"><line stroke="currentColor" y2="6"></line><text fill="currentColor" y="9" dy="0.71em">30</text></g><g class="tick" opacity="1" transform="translate(198.9,0)"><line stroke="currentColor" y2="6"></line><text fill="currentColor" y="9" dy="0.71em">40</text></g><g class="tick" opacity="1" transform="translate(248.5,0)"><line stroke="currentColor" y2="6"></line><text fill="currentColor" y="9" dy="0.71em">50</text></g><g class="tick" opacity="1" transform="translate(298.09999999999997,0)"><line stroke="currentColor" y2="6"></line><text fill="currentColor" y="9" dy="0.71em">60</text></g><g class="tick" opacity="1" transform="translate(347.7,0)"><line stroke="currentColor" y2="6"></line><text fill="currentColor" y="9" dy="0.71em">70</text></g><g class="tick" opacity="1" transform="translate(397.3,0)"><line stroke="currentColor" y2="6"></line><text fill="currentColor" y="9" dy="0.71em">80</text></g><g class="tick" opacity="1" transform="translate(446.90000000000003,0)"><line stroke="currentColor" y2="6"></line><text fill="currentColor" y="9" dy="0.71em">90</text></g><g class="tick" opacity="1" transform="translate(496.5,0)"><line stroke="currentColor" y2="6"></line><text fill="currentColor" y="9" dy="0.71em">100</text></g></g><g fill="none" font-size="10" font-family="sans-serif" text-anchor="end"><path class="domain" stroke="currentColor" d="M-6,307H0.5V0.5H-6"></path><g class="tick" opacity="1" transform="translate(0,307)"><line stroke="currentColor" x2="-6"></line><text fill="currentColor" x="-9" dy="0.32em">0</text></g><g class="tick" opacity="1" transform="translate(0,276.35)"><line stroke="currentColor" x2="-6"></line><text fill="currentColor" x="-9" dy="0.32em">10</text></g><g class="tick" opacity="1" transform="translate(0,245.70000000000002)"><line stroke="currentColor" x2="-6"></line><text fill="currentColor" x="-9" dy="0.32em">20</text></g><g class="tick" opacity="1" transform="translate(0,215.04999999999998)"><line stroke="currentColor" x2="-6"></line><text fill="currentColor" x="-9" dy="0.32em">30</text></g><g class="tick" opacity="1" transform="translate(0,184.4)"><line stroke="currentColor" x2="-6"></line><text fill="currentColor" x="-9" dy="0.32em">40</text></g><g class="tick" opacity="1" transform="translate(0,153.75)"><line stroke="currentColor" x2="-6"></line><text fill="currentColor" x="-9" dy="0.32em">50</text></g><g class="tick" opacity="1" transform="translate(0,123.10000000000001)"><line stroke="currentColor" x2="-6"></line><text fill="currentColor" x="-9" dy="0.32em">60</text></g><g class="tick" opacity="1" transform="translate(0,92.45000000000002)"><line stroke="currentColor" x2="-6"></line><text fill="currentColor" x="-9" dy="0.32em">70</text></g><g class="tick" opacity="1" transform="translate(0,61.79999999999998)"><line stroke="currentColor" x2="-6"></line><text fill="currentColor" x="-9" dy="0.32em">80</text></g><g class="tick" opacity="1" transform="translate(0,31.14999999999999)"><line stroke="currentColor" x2="-6"></line><text fill="currentColor" x="-9" dy="0.32em">90</text></g><g class="tick" opacity="1" transform="translate(0,0.5)"><line stroke="currentColor" x2="-6"></line><text fill="currentColor" x="-9" dy="0.32em">100</text></g></g><circle cx="49.6" cy="122.60000000000001" r="40" style="fill: blue;"></circle><circle cx="248" cy="122.60000000000001" r="40" style="fill: red;"></circle><circle cx="496" cy="122.60000000000001" r="40" style="fill: green;"></circle></g></svg></div>
+
+<script>
+
+
+
+    const margin = {top : 50, right: 40, bottom: 50, left: 40},
+        width = 0.6*window.innerWidth - margin.left - margin.right,
+        height = 0.3*window.innerHeight - margin.top - margin.bottom;
+
+    const svg = d3.select("#Area")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        // translate this svg element to leave some margin.
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    const x = d3.scaleLinear()
+        .domain([0,100])
+        .range([0,width])
+
+    svg.append('g')
+        .attr("transform", "translate(0," + height  + ")")
+        .call(d3.axisBottom(x));
+
+    const y = d3.scaleLinear()
+            .domain([0,100])
+            .range([height,0])
+
+    svg.append('g')
+        .call(d3.axisLeft(y));
+
+    // Position des cercles x(position)
+    svg.append("circle")
+        .attr("cx", x(10)).attr("cy", y(60)).attr("r", 40).style("fill", "blue");
+    svg.append("circle")
+        .attr("cx", x(50)).attr("cy", y(60)).attr("r", 40).style("fill", "red");
+    svg.append("circle")
+        .attr("cx", x(100)).attr("cy", y(60)).attr("r", 40).style("fill", "green");
+
+
+
+
+</script>
+
+</body></html>
