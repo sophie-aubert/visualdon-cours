@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Cours 5 - Interaction et animation</title>
+
+	<meta name="description" content="Interaction et animation avec d3.js">
+	<meta name="author" content="Noemi Romano">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/simple.css" id="theme">
+	<link rel="stylesheet" href="dist/custom.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+			<!-- <img id='logo' src='img/logo.png'/> -->
+
+			<section>
+
+				<h2>Visualisation de données</h2>
+				<code class="heig-red">5. Interaction et animation</code>
+
+				<br>
+				<br>
+
+				<small id="current_date"></small>
+
+				<script>
+					date = new Date();
+					year = date.getFullYear();
+					month = date.getMonth() + 1;
+					day = date.getDate();
+					const options = {
+						year: 'numeric',
+						month: 'long',
+						day: 'numeric'
+					};
+					document.getElementById("current_date").innerHTML = date.toLocaleDateString('fr-FR', options);
+				</script>
+
+				<br>
+				<p>Noemi Romano<br>
+					<small> <a href="mailto:noemi.romano@heig-vd.ch" style="color:grey">noemi.romano@heig-vd.ch</a></small> </p>
+			</section>
+
+			<section class="fragment">
+				<h2>Semaine passée</h2>
+				<p class="fragment"><span class="heig-red">Echelles</span>  <code>.scaleLinear().domain().range()</code></p>
+				<p class="fragment"><span class="heig-red">Axes</span> <code>.axisBottom()</code>, <code>.axisTop()</code>,<code>.axisLeft()</code>,<code>.axisRight()</code><br> </p>
+			</section>
+
+
+</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/zoom/zoom.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/search/search.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/d3/reveald3.js"></script>
+	<script>
+		// Make reveal.js aware of the size change
+		// Reveal.layout();
+
+		// Also available as an ES module, see:
+		// https://revealjs.com/initialization/
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			center: true,
+			hash: false,
+			slideNumber: true,
+			logo: true,
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight],
+			// // optional configurations for reveald3
+    reveald3: {
+
+         // If the previous slide is a slide further in the deck (i.e. we come back to
+         // slide from the next slide), by default the last fragment transition will be
+         // triggered to to get the last state of the visualization and simulate the
+         // the state the simulation was in when we left the slide. This can be
+         // discarded.
+         runLastState: true, //default true
+
+         // If a special onSlideChanged transition has been set (if for example the visualization
+         // has been preloaded using the data-preload attribute, and you want a specific transition
+         // to happen only when you arrive on the slide), you can choose the delay with which such
+         // a transition will occur (note that in the case of no data-preload, if no delay is set then
+         // the transition might not occur since the iframe might not be fully loaded yet when the
+         // function is triggered). // default 0.
+         onSlideChangedDelay: 400,
+
+         // This will prefix the path attributes of the source html paths with the given path.
+         // (by default "src" if set to true or with the specified path if string)
+         mapPath: false, // default: false
+
+         // If true, will try to locate the file at a fallback url without the mapPath prefix in case no file is found
+         // at the stipulated url with mapPath
+         tryFallbackURL: false, //default false
+
+         // Checking for file existance has been reported to fail in rare
+         // cases though files did exist. This option is to disable the file checking.
+         //see: https://github.com/gcalmettes/reveal.js-d3/issues/10
+         disableCheckFile: false, //default false,
+    },
+
+    // Reveal.js plugins
+    dependencies: [
+
+        { src: 'plugin/d3/reveald3.js' },
+
+    ]
+		});
+	</script>
+
+</body>
+
+</html>
