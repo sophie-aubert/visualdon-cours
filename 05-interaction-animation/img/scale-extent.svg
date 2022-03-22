@@ -10,9 +10,9 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="199.00589mm"
-   height="29.426109mm"
-   viewBox="0 0 199.00588 29.426107"
+   width="45.244167mm"
+   height="29.369165mm"
+   viewBox="0 0 45.244165 29.369163"
    version="1.1"
    id="svg8"
    sodipodi:docname="transition.svg"
@@ -234,9 +234,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.24748737"
-     inkscape:cx="14.651536"
-     inkscape:cy="-266.26616"
+     inkscape:zoom="1.979899"
+     inkscape:cx="227.76076"
+     inkscape:cy="51.59313"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -252,8 +252,8 @@
     <inkscape:grid
        type="xygrid"
        id="grid8392"
-       originx="-318.41007"
-       originy="253.99987" />
+       originx="-235.34666"
+       originy="526.65331" />
   </sodipodi:namedview>
   <metadata
      id="metadata5">
@@ -271,7 +271,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-230.45193,-1063.7573)">
+     transform="translate(-147.38847,-1336.4676)">
     <circle
        style="opacity:1;fill:#2882e0;fill-opacity:0.24679488;stroke:#2882e0;stroke-width:0.17036328;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:12.43464565;stroke-opacity:1"
        id="path4747"

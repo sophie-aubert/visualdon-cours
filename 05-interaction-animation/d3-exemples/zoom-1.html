@@ -27,29 +27,47 @@
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+    let data = [], numPoints = 100;
 
-    const tableauLettresAleatoires2 = () => {
-        return d3.shuffle("abcdefghijklmnopqrstuvwxyz".split(""))
-            .slice(0, Math.floor(6 + Math.random() * 20))
-            .sort();
+    let zoom = d3.zoom()
+        .on('zoom', handleZoom);
+
+    function handleZoom(e) {
+        svg.attr('transform', e.transform);
+    }
+
+    function initZoom() {
+        d3.select('svg')
+            .call(zoom);
+    }
+
+    function updateData() {
+        data = [];
+        for(let i=0; i<numPoints; i++) {
+            data.push({
+                id: i,
+                x: Math.random() * width,
+                y: Math.random() * height
+            });
+        }
+    }
+
+    function update() {
+        console.log(data);
+
+        svg.selectAll('circle')
+            .data(data)
+            .join('circle')
+            .attr('cx', function(d) { return d.x; })
+            .attr('cy', function(d) { return d.y; })
+            .attr('r', 3);
     }
 
 
 
-    setInterval(() => {
-        svg.selectAll("text")
-            .data(tableauLettresAleatoires2(), d=>d)
-            .join(
-                enter => enter.append("text")
-                    .attr('fill', 'green')
-                    .attr("x", (d, i) => i * 15) // Mettre à jour à chaque fois la position
-                     .text(d => d),
-                update => update.attr('fill', 'grey')
-                    .attr("x", (d, i) => i * 15) // Mettre à jour à chaque fois la position
-            )
-            // .attr("x", (d, i) => i * 15) // Mettre à jour à chaque fois la position
-
-    }, 1000);
+    initZoom();
+    updateData();
+    update();
 
 
 </script>

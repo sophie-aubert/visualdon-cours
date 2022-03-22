@@ -28,30 +28,42 @@
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 
-    const tableauLettresAleatoires2 = () => {
+    const tableauLettresAleatoires3 = () => {
         return d3.shuffle("abcdefghijklmnopqrstuvwxyz".split(""))
             .slice(0, Math.floor(6 + Math.random() * 20))
             .sort();
     }
 
 
-let t = d3.transition()
-        .duration(750)
-        .ease(d3.easeLinear);
+function getTransition() {
+        return d3.transition()
+            .duration(500)
+            .ease(d3.easeLinear)
+    }
 
     setInterval(() => {
         svg.selectAll("text")
-            .data(tableauLettresAleatoires2(), d=>d)
+            .data(tableauLettresAleatoires3, d => d)
             .join(
                 enter => enter.append("text")
-                    .attr('fill', 'green')
-                .text(d => d),
-                update => update.attr('fill', 'grey')
-
-            )
-            .attr("x", (d, i) => i * 15) // Mettre à jour à chaque fois la position
-
-    }, 1000);
+                    .attr("fill", "green")
+                    .attr("x", (d, i) => i * 16)
+                    .attr("y", -30)
+                    .text(d => d)
+                    .transition(getTransition())
+                    .attr("y", 0),
+                update => update
+                    .attr("fill", "grey")
+                    .attr("y", 0)
+                    .transition(getTransition())
+                    .attr("x", (d, i) => i * 16),
+                exit => exit
+                    .attr("fill", "brown")
+                    .transition(getTransition())
+                     .attr("y", 30)
+                     .remove()
+            );
+    }, 2000);
 
 
 </script>

@@ -106,27 +106,11 @@
 			</section>
 
 
-			<section>
-				<h2>Transitions</h2>
-
-				<div class="row">
-
-				<div class="col-50">
-					<img src="img/transition-syntaxe.svg" alt="" height="250"/>
-				</div>
-
-				<div class="col-50">
-					<img src="img/transition.svg" alt="" height="200"/>
-				</div>
-
-			</div>
-
-			</section>
-
 
 
 			<section>
 				<h2>Joindre les données</h2>
+				<h5><span class="heig-red">RAPPEL</span></h5>
 				<div class="row">
 					<img src="img/data-enter-1.svg" alt="" height="300"/>
 				</div>
@@ -181,7 +165,7 @@
 				<h5><span class="heig-red">EXEMPLE</span></h5>
 				<div class="row">
 					<div class="col-50">
-						<img src="img/data-join-example-2.svg" alt="" height="300"/>
+						<img src="img/data-join-example-3.svg" alt="" height="300"/>
 					</div>
 					<div class="col-50">
 						<div class = "fig-container no-margin-top" data-file="d3-exemples/data-join-3.html"></div>
@@ -191,12 +175,138 @@
 
 
 			<section>
-				<h2>Zoom</h2>
+				<h2>Zoom & Pan</h2>
+			<code>d3.<span class="heig-red">zoom()</span></code>
+				<div class="row">
+					<div class="col-60">
+				<ul>
+					<li>Événements: <code>'zoom', 'start', 'end'</code></li>
+					<li>Retourne : <code>transform</code> (qu'on peut injecter dans .attr()!)</li>
+				</ul>
+					</div>
+				<div class="col-60">
+
+				</div>
+
 			</section>
 
 			<section>
-				<h2>Zoom</h2>
+				<h2>Zoom & Pan</h2>
+				<h5><span class="heig-red">Exemple</span></h5>
+
+				<div class="row">
+					<div class="col-50">
+						<pre>
+<code class="hljs" data-trim data-noescape data-line-numbers="1-2|4-7|9-10|12-17">let zoom = d3.zoom()
+        .on('zoom', handleZoom);
+
+function handleZoom(e) {
+	svg
+	.attr('transform', e.transform);
+}
+
+d3.select('svg')
+   .call(zoom);
+
+svg.selectAll('circle')
+	.data(data)
+    .join('circle')
+    .attr('cx', d => d.x;)
+    .attr('cy', d => d.y;)
+    .attr('r', 3);
+					</code>
+	</pre>
+	</div>
+					<div class="col-50">
+						<div class = "fig-container no-margin-top" data-file="d3-exemples/zoom-1.html"></div>
+					</div>
+				</div>
 			</section>
+
+			<section>
+				<h2>Zoom & Pan</h2>
+
+				<h5><span class="heig-red">Contraintes</span></h5>
+
+				<div class="row">
+					<code>d3.zoom().<span class="heig-red">contrainte(props)</span></code>
+					<br>
+					<br>
+					<div class="col-50">
+						<small><code><span class="heig-red">scaleExtent([min, max])</span></code></small>
+						<img src="img/scale-extent.svg" alt="" height="200"/>
+
+					</div>
+
+
+					<div class="col-50">
+						<small><code><span class="heig-red">translateExtent([minX,minY],[maxX, maxY])</span> </code></small>
+						<img src="img/translate-extent.svg" alt="" height="200"/>
+
+					</div>
+
+				</div>
+
+			</section>
+
+			<section>
+				<h2>Zoom & Pan</h2>
+
+				<h5><span class="heig-red">Méthodes</span></h5>
+
+				<div class="row">
+					<code>svg.call(zoom<span class="heig-red">.methode, props</span>)</code>
+					<br>
+					<br>
+					<div class="col-50">
+						<code><span class="heig-red">Zoom</span></code>
+						<br>
+						<br>
+
+						<small><code>(zoom.<span class="heig-red">scaleBy, facteur_échelle</span>)</code> <br>Multiplie l'échelle actuelle par le facteur d'échelle
+							<br><br>
+
+							<code>(zoom.<span class="heig-red">scaleTo, échelle</span>)</code> <br>Change l'échelle à échelle définie</small>
+
+					</div>
+
+
+					<div class="col-50">
+						<code><span class="heig-red">Pan</span> </code>
+						<br>
+						<br>
+
+						<small><code>(zoom.<span class="heig-red">translateBy, x, y </span>)</code><br>Translation de x, y
+							<br><br>
+						<code>(zoom.<span class="heig-red">translateTo, x, y</span>)</code><br>Translation jusqu'à x, y</small>
+					</div>
+				</div>
+			</section>
+
+				<section>
+					<h2>Projet</h2>
+					<p>Charger les données</p>
+					<p>Agréger et manipuler les différents datasets</p>
+					<p>Commencer la visualisation "statique"</p>
+				</section>
+
+<section>
+	<h2>Exercices</h2>
+<h5>gapminder</h5>
+	<div class="row">
+	<div class="col-50">
+	<ol>
+		<li>Visualisation statique (1 avril)</li>
+		<li>Cartographie (8 avril)</li>
+		<li>Interaction et animation (22 avril)</li>
+	</ol>
+	</div>
+<div class="col-50">
+	<iframe src="https://www.gapminder.org/tools/#$chart-type=bubbles&url=v1" width="800" height="550"></iframe>
+
+</div>
+</section>
+		</div>
 		</div>
 
 </div>
