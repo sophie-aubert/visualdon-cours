@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Cours 6 - Interaction et animation 2</title>
+
+	<meta name="description" content="Alternatives d3 et scrollytelling">
+	<meta name="author" content="Noemi Romano">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/simple.css" id="theme">
+	<link rel="stylesheet" href="dist/custom.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+			<!-- <img id='logo' src='img/logo.png'/> -->
+
+			<section>
+
+				<h2>Visualisation de données</h2>
+				<code class="heig-red">6. Interaction et animation 2</code>
+
+				<br>
+				<br>
+
+				<small id="current_date"></small>
+
+				<script>
+					date = new Date();
+					year = date.getFullYear();
+					month = date.getMonth() + 1;
+					day = date.getDate();
+					const options = {
+						year: 'numeric',
+						month: 'long',
+						day: 'numeric'
+					};
+					document.getElementById("current_date").innerHTML = date.toLocaleDateString('fr-FR', options);
+				</script>
+
+				<br>
+				<p>Noemi Romano<br>
+					<small> <a href="mailto:noemi.romano@heig-vd.ch" style="color:grey">noemi.romano@heig-vd.ch</a></small> </p>
+			</section>
+
+			<section class="fragment">
+				<h2>Semaine passée</h2>
+				<p class="fragment"><span class="heig-red">Animation</span>  <code>transitions, data().join(enter, update, exit)</code></p>
+				<p class="fragment"><span class="heig-red">Interaction</span> <code>.zoom()</code></p>
+			</section>
+
+			<section>
+				<h2>Brush</h2>
+				<div class = "fig-container no-margin-top" data-file="d3-exemples/brush-1.html"></div>
+			</section>
+
+			<section>
+				<h2>Brush</h2>
+				<code>d3.<span class="heig-red">brush()</span></code>
+				<div class="row">
+					<div class="col-40">
+						<img src="img/brush-syntaxe.svg" alt="" height="300"/>
+					</div>
+					<div class="col-60">
+						<br>
+						<ul>
+							<li>Événements: <code>'brush', 'start', 'end'</code></li>
+							<li>Retourne: <code>Étendue du brush ([[x0,y0],[x1,y1]])</code></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+
+			<section>
+				<h2>Brush</h2>
+				<h5><span class="heig-red">Exemple</span></h5>
+
+				<div class="row">
+					<div class="col-50">
+						<pre>
+<code class="hljs" data-trim data-noescape data-line-numbers="1-2|4-5|8-24|25-31">let brush = d3.brush()
+        .on('brush', handleBrush);
+
+d3.select('svg')
+   .call(brush);
+
+
+let brushExtent;
+
+function handleBrush(e) {
+
+brushExtent = e.selection();
+
+d3.select('svg')
+	.selectAll('circle')
+	.data(data)
+	.join('circle')
+	.attr('cx', d=>d.x)
+	.attr('cy', d=>d.y)
+    .attr('r', 4)
+    .style('fill',
+	d=> isInBrushExtent(d) ? 'red' : null);
+}
+
+function isInBrushExtent(d) {
+        return brushExtent &&
+            d.x >= brushExtent[0][0] &&
+            d.x <= brushExtent[1][0] &&
+            d.y >= brushExtent[0][1] &&
+            d.y <= brushExtent[1][1];
+    }
+					</code>
+	</pre>
+					</div>
+					<div class="col-50">
+						<div class = "fig-container no-margin-top" data-file="d3-exemples/brush-2.html"></div>
+					</div>
+				</div>
+			</section>
+
+
+			<section>
+				<h2>Animation</h2>
+
+				<img src="img/animation-1.svg" alt="" height="250"/>
+
+			</section>
+
+			<section>
+				<h2>Animation</h2>
+				<h5> <span class ="heig-red">TEMPS</span></h5>
+				<img src="img/animation-2.svg" alt="" height="250"/>
+			</section>
+
+
+			<section>
+				<h2>Animation</h2>
+				<div class = "fig-container no-margin-top" data-file="d3-exemples/animation-1.html"></div>
+			</section>
+
+			<section>
+				<h2>Animation</h2>
+				<pre>
+				<code class="hljs" data-trim data-noescape data-line-numbers="2-9|11-23|25-29|31-45">
+// Variable où on stocke l'id de notre intervalle
+let nIntervId;
+
+function animate() {
+	// regarder si l'intervalle a été déjà démarré
+	if (!nIntervId) {
+		nIntervId = setInterval(play, 1000);
+	}
+	}
+
+let i = 0;
+function play() {
+		// Recommencer si à la fin du tableau
+		if(i == data.length-1) {
+		i = 0;
+		} else {
+		i++;
+		}
+
+       // Mise à jour graphique
+		d3.select('#paragraphe').text(data[i].annee)
+		updateChart([data[i]]);
+}
+
+// Mettre en pause
+function stop() {
+			clearInterval(nIntervId);
+			nIntervId = null;
+					}
+
+// Fonction de mise à jour du graphique
+function updateChart(data_iteration) {
+
+			svg.selectAll('circle')
+					.data(data_iteration)
+					.join(enter => enter.append('circle')
+					.attr('cx',300)
+					.attr('cy', 150).transition(d3.transition()
+					.duration(500)
+					.ease(d3.easeLinear)).attr('r', d=>d.valeur),
+					update => update.transition(d3.transition()
+					.duration(500)
+					.ease(d3.easeLinear)).attr('r', d=>d.valeur),
+					exit => exit.remove())
+}
+
+// Event listener
+document.getElementById("play").addEventListener("click", animate);
+document.getElementById("stop").addEventListener("click", stop);
+					;
+				</code>
+					</pre>
+			</section>
+
+
+			<section>
+				<h2>Projet</h2>
+				<p>Commencer la visualisation "statique"</p>
+			</section>
+
+			<section>
+				<h2>Exercices</h2>
+				<h5>gapminder</h5>
+				<div class="row">
+					<div class="col-50">
+						<ol>
+							<li>Visualisation statique (1 avril)</li>
+							<li>Cartographie (8 avril)</li>
+							<li>Interaction et animation (22 avril)</li>
+						</ol>
+					</div>
+					<div class="col-50">
+						<iframe src="https://www.gapminder.org/tools/#$chart-type=bubbles&url=v1" width="800" height="550"></iframe>
+
+					</div>
+			</section>
+
+</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/zoom/zoom.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/search/search.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/d3/reveald3.js"></script>
+	<script>
+		// Make reveal.js aware of the size change
+		// Reveal.layout();
+
+		// Also available as an ES module, see:
+		// https://revealjs.com/initialization/
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			center: true,
+			hash: false,
+			slideNumber: true,
+			logo: true,
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight],
+			// // optional configurations for reveald3
+    reveald3: {
+
+         // If the previous slide is a slide further in the deck (i.e. we come back to
+         // slide from the next slide), by default the last fragment transition will be
+         // triggered to to get the last state of the visualization and simulate the
+         // the state the simulation was in when we left the slide. This can be
+         // discarded.
+         runLastState: true, //default true
+
+         // If a special onSlideChanged transition has been set (if for example the visualization
+         // has been preloaded using the data-preload attribute, and you want a specific transition
+         // to happen only when you arrive on the slide), you can choose the delay with which such
+         // a transition will occur (note that in the case of no data-preload, if no delay is set then
+         // the transition might not occur since the iframe might not be fully loaded yet when the
+         // function is triggered). // default 0.
+         onSlideChangedDelay: 400,
+
+         // This will prefix the path attributes of the source html paths with the given path.
+         // (by default "src" if set to true or with the specified path if string)
+         mapPath: false, // default: false
+
+         // If true, will try to locate the file at a fallback url without the mapPath prefix in case no file is found
+         // at the stipulated url with mapPath
+         tryFallbackURL: false, //default false
+
+         // Checking for file existance has been reported to fail in rare
+         // cases though files did exist. This option is to disable the file checking.
+         //see: https://github.com/gcalmettes/reveal.js-d3/issues/10
+         disableCheckFile: false, //default false,
+    },
+
+    // Reveal.js plugins
+    dependencies: [
+
+        { src: 'plugin/d3/reveald3.js' },
+
+    ]
+		});
+	</script>
+
+</body>
+
+</html>

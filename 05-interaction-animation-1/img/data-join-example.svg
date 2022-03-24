@@ -235,16 +235,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="-887.40293"
-     inkscape:cy="4485.6004"
+     inkscape:cx="124.38279"
+     inkscape:cy="288.10039"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
-     inkscape:window-width="1180"
-     inkscape:window-height="490"
-     inkscape:window-x="2974"
-     inkscape:window-y="394"
-     inkscape:window-maximized="0"
+     inkscape:window-width="2416"
+     inkscape:window-height="1312"
+     inkscape:window-x="144"
+     inkscape:window-y="54"
+     inkscape:window-maximized="1"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
@@ -1433,16 +1433,5 @@
            height="120"
            x="-1143.4396"
            y="2331.2173" /></flowRegion><flowPara
-         id="flowPara6011" /></flowRoot>    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="380.35443"
-       y="1175.2046"
-       id="text10588"><tspan
-         sodipodi:role="line"
-         id="tspan10586"
-         x="380.35443"
-         y="1175.2046"
-         style="stroke-width:0.26458332"> z</tspan></text>
-  </g>
+         id="flowPara6011" /></flowRoot>  </g>
 </svg>
