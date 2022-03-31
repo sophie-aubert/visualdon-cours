@@ -4,9 +4,9 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Cours 5 - Interaction et animation</title>
+	<title>Cours 7 - Introduction à la cartographie</title>
 
-	<meta name="description" content="Interaction et animation avec d3.js">
+	<meta name="description" content="Introduction à la cartographie">
 	<meta name="author" content="Noemi Romano">
 
 	<meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,7 +36,7 @@
 			<section>
 
 				<h2>Visualisation de données</h2>
-				<code class="heig-red">5. Interaction et animation</code>
+				<code class="heig-red">07. Introduction à la cartographie</code>
 
 				<br>
 				<br>
@@ -63,8 +63,148 @@
 
 			<section class="fragment">
 				<h2>Semaine passée</h2>
-				<p class="fragment"><span class="heig-red">Echelles</span>  <code>.scaleLinear().domain().range()</code></p>
-				<p class="fragment"><span class="heig-red">Axes</span> <code>.axisBottom()</code>, <code>.axisTop()</code>,<code>.axisLeft()</code>,<code>.axisRight()</code><br> </p>
+				<p class="fragment"><span class="heig-red">Interaction</span>  <code>.zoom(), .brush()</code></p>
+				<p class="fragment"><span class="heig-red">Animation</span> <code>.transition(), .join(enter, update, exit), setInterval, clearInterval </code><br> </p>
+			</section>
+
+			<section>
+				<h2>Un peu d'histoire</h2>
+			</section>
+
+			<section>
+				<img src="img/catal_huyuk_map.jpg" alt="" style="background: transparent;" width="700" height="400"/>
+				<small><code> Çatalhöyük Map, 6200 avant J. C.  (Source: Cartography blog)</code></small>
+			</section>
+
+			<section>
+				<img src="img/800px-anaximander_world_map-en.svg_.png" alt="" style="background: transparent;" width="450" height="450"/>
+				<small><code> Reconstruction of Anaximander’s Map (Source: Digital Maps of the Ancient World)</code></small>
+			</section>
+
+			<section>
+				<img src="img/PtolemyWorldMap.jpg" alt="" style="background: transparent;" width="700" height="450">
+				<small><code> Ptolemy map of the World, II siècle après J. C. (Source: Wikipedia)</code></small>
+			</section>
+
+			<section>
+				<img src="img/TabulaRogeriana_upside-down.jpg" alt="catal" style="background: transparent;" width="700" height="450">
+				<small><code> Tabula Rogeriana, Muhammad al-Idrisi, 1153 (Source: Wikipedia)</code></small>
+			</section>
+
+			<section>
+				<img src="img/Mercator_1569.png" alt="catal" style="background: transparent;" width="700" height="450">
+				<small><code> Mercator Map (Source: Wikipedia)</code></small>
+			</section>
+
+			<section>
+				<img src="img/cholera_map.jpg" alt="catal" style="background: transparent;" width="550" height="520">
+				<code><small>L'épidémie choléra de Broad Street, John Snow, 1854</small> </code>
+			</section>
+
+			<section>
+				<img src="img/interactive-story-maps.gif" alt="catal" style="background: transparent;" width="700" height="450">
+				<code><small>How the virus got out, New York Times </small></code>
+			</section>
+
+
+			<section>
+				<h2>Processus</h2>
+				<img src="img/mapping-process-1.svg" alt="catal" style="background: transparent;" >
+			</section>
+
+
+			<section>
+				<h2>Types de carte</h2>
+			</section>
+
+			<section>
+				<h3>Cartes de référence</h3>
+				<iframe width="700" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=6.6391754150390625%2C46.77801443128393%2C6.652565002441406%2C46.78450913603134&amp;layer=mapnik" style="border: 1px solid black"></iframe>
+				<code><small>Google maps, Openstreetmap, Maps.me </small></code>
+			</section>
+
+			<section>
+				<h3>Cartes thématiques</h3>
+				<p>Qualitative</p>
+				<img src="img/26cantons.png" alt="" style="background: transparent;" width="600" height="400">
+				<code><small>Les cantons (Source: Bonjour Genève)  </small></code>
+			</section>
+
+			<section>
+				<h3>Cartes thématiques</h3>
+				<p>Choroplète</p>
+				<a href="https://www.rts.ch/info/suisse/12849342-les-cartes-des-resultats-des-votations-federales-commune-par-commune.html"><img src="img/rts_cartes.gif" alt="" width="600" /></a>
+				<code><small>Votations fédérales 2022 (Source: RTS)  </small></code>
+			</section>
+
+			<section>
+				<h3>Cartogrammes</h3>
+				<img src="img/cartogramme.png" alt="" style="background: transparent;" width="600" height="400">
+				<code><small>Vraies et fausses évidences de la géographie électorale suisse, Manouk Borzakian</small></code>
+			</section>
+
+			<section>
+				<h3>Flowmap</h3>
+				<img src="img/flowmap.png" alt="" style="background: transparent;" width="600" height="400">
+				<code><small>Migration en Suisse 2016, <a href="https://flowmap.blue/15kwLB4baXZ7jpip8q0JjgR6zDoS5Gt3gMLCTUAboQxk?v=46.719075%2C7.817990%2C7.51%2C0%2C0&a=0&as=1&b=1&bo=75&c=0&ca=1&d=1&fe=1&lt=1&lfm=ALL&col=Default&f=45">flowmap.blue</a>  </small></code>
+			</section>
+
+			<section>
+				<h3>Cartes de chaleur</h3>
+				<iframe width='100%' height='520' frameborder='0' src='https://public.carto.com/viz/872476d9-f3e4-4c66-bcf6-b3dda156a782/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+				<code><small>CARTO Heat Maps</small></code>
+			</section>
+
+			<section>
+				<h3>Cartes topographiques</h3>
+				<img src="img/relief.jpg" alt="" style="background: transparent;" width="700" height="500">
+				<code><small>Images relief, <a href="https://www.reddit.com/r/Switzerland/comments/jav2xv/i_made_a_relief_map_of_switzerland_using_real/">Reddit</a></small></code>
+			</section>
+
+			<section>
+				<h3>Cartes topologiques</h3>
+				<img src="img/lausanne-transport-map.jpg" alt="" style="background: transparent;" width="700" height="500">
+				<code><small>Transports Public Lausannois</small></code>
+			</section>
+
+
+			<section>
+				<h2>Design</h2>
+				<img src="img/design.svg" alt="catal" style="background: transparent;" >
+			</section>
+
+
+			<section>
+				<h3>Projection</h3>
+				<img src="img/projection.gif" alt="" height= "400" width="400"> <br>
+				<a href="https://www.youtube.com/watch?v=kIID5FDi2JQ&t=48s">Pourquoi les cartes du monde sont fausses</a>
+				<br>
+				<a href="https://github.com/d3/d3-geo-projection#projections">Listes de projection (d3)</a>
+			</section>
+
+					
+
+			<section>
+				<h2>Symbologie</h2>
+				<img src="img/variables-visuelles-de-Bertin.png" height="450" alt="">
+				<code><small>Les variables visuelles, La Sémiologie graphique de Jacques Bertin, 1967</small></code>
+			</section>
+			<section>
+
+			<h2>Exercice Gapminder</h2>
+				<ul>
+					<li>Traitez vos données avant de pouvoir les dessiner (voir message sur Teams)</li>
+					<li>Utilisez d'autres échelles que scaleLinear() (<code>.scaleSqrt(), .scalePow())</code></li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Projet</h2>
+				<ul>
+				<li>Squelette de votre site</li>
+				<li>Visualisations statiques</li>
+				<li>Animation pour plus tard!</li>
+				</ul>
 			</section>
 
 
