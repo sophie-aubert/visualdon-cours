@@ -42,51 +42,42 @@
 
    // const pathGenerator = d3.geoPath().projection(projection)
 
-   d3.json("switzerland.geojson")
-    //d3.json("EastBlueFixed.geojson")
+   //d3.json("switzerland.geojson")
+    d3.json("projet_dataviz.geojson")
         .then((data) => {
 
             let projection = d3.geoMercator()
                 .translate([width/2, height/2])
                 .rotate([-7.43864, -46.95108, 0])
                 .center([0.54, -0.1])
-                .scale(5000)
+                .scale(1500)
 
 
             let path = d3.geoPath()
              .projection(projection)
-
-            svg.selectAll("path")
-                .data(data.features)
-                .join(enter => enter.append('path').attr("d",path)
-                    .attr("fill","none")
-                    .attr("stroke","black")
-                    .attr("stroke-width",1))
-
-
-            svg.append('circle')
-                .attr("cx", projection([6.6412, 46.7785])[0])
-                .attr("cy", projection([6.6412, 46.7785])[1])
-                .attr("fill", "red")
-                .attr("r", 3)
-
-            // One piece
+            //
             // svg.selectAll("path")
             //     .data(data.features)
-            //     .join('path')
-            //     .attr("d",path)
-            //     .attr("fill","none")
-            //     .attr("stroke","black")
-            //     .attr("stroke-width",1);
+            //     .join(enter => enter.append('path').attr("d",path)
+            //         .attr("fill","none")
+            //         .attr("stroke","black")
+            //         .attr("stroke-width",1))
+            //
+            //
+            // svg.append('circle')
+            //     .attr("cx", projection([6.6412, 46.7785])[0])
+            //     .attr("cy", projection([6.6412, 46.7785])[1])
+            //     .attr("fill", "red")
+            //     .attr("r", 3)
 
-
+            //One piece
             svg.selectAll("path")
                 .data(data.features)
-                .join(enter => enter.append('path').attr("d",path)
-                    .attr("fill","none")
-                    .attr("stroke","black")
-                    .attr("stroke-width",1))
-
+                .join('path')
+                .attr("d",path)
+                .attr("fill","none")
+                .attr("stroke","black")
+                .attr("stroke-width",1);
 
         });
 

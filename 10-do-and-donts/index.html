@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Cours 9 - Web scraping</title>
+	<title>Cours 10 - Dos and don'ts</title>
 
 	<meta name="description" content="Interaction et animation avec d3.js">
 	<meta name="author" content="Noemi Romano">
@@ -32,11 +32,9 @@
 		<!-- Any section element inside of this container is displayed as a slide -->
 		<div class="slides">
 			<!-- <img id='logo' src='img/logo.png'/> -->
-
 			<section>
-
 				<h2>Visualisation de données</h2>
-				<code class="heig-red">9. Web scraping</code>
+				<code class="heig-red">10. Dos and dont's en visualisation de données</code>
 
 				<br>
 				<br>
@@ -61,137 +59,106 @@
 					<small> <a href="mailto:noemi.romano@heig-vd.ch" style="color:grey">noemi.romano@heig-vd.ch</a></small> </p>
 			</section>
 
-
-
-			<section>
-				<h2>Web scraping</h2>
-				<p>Extraction de données d'un site web</p>
-				<img src="img/web-scraping.svg" alt="">
+			<section class="fragment">
+				<h5 class="fragment">Ne pas couper les axes</h5>
+				<img src="img/truncated_axis.svg" alt="" width="500" height="500">
 			</section>
 
 			<section>
-				<h2><code>async, await</code></h2>
-				code asynchrone
-				<pre>
-			<code>
-(async () => {
-  try {
-    const result = await doSomething();
-    const newResult = await doSomethingElse(result);
-    const finalResult = await doThirdThing(newResult);
-    console.log(finalResult);
-  } catch(err) {
-    console.log(err);
-  }
-})();
-					</code>
-				</pre>
+				<h5>Couper les axes</h5>
+				<img src="img/truncated_axis2.svg" alt="" width="800" height="500">
+
+			</section>
+
+			<section class="fragment">
+				<h5 class="fragment">Comparer des pommes avec des poires</h5>
+				<img src="img/comparer-pomme-et-poires.jpg" alt="" width="500" height="500">
+			</section>
+
+
+
+			<section class="fragment">
+				<h5 class="fragment">Correlation et causalité</h5>
+				<a href="https://www.tylervigen.com/spurious-correlations"><img src="img/consommation-de-chocolat-et-prix-nobel.jpg" alt="" width="550" height="450"></a>
+			</section>
 			</section>
 
 
 			<section>
-				<h2>Web scraper</h2>
-				<code>isomorphic-fetch</code>
-			<pre>
-				<code>
-(async () => {
-  const response = await fetch('https://example.com');
-  const text = await response.text();
+				<h5>Correlation et causalité</h5>
+				<a href="https://www.tylervigen.com/spurious-correlations"><img src="img/Dont%20confuse%20correlation%20with%20causation.png" alt="" width="550" height="500"></a>
+				<code><small>Source: Dos and don’ts of data visualisation — European Environment Agency (eea.europa.eu) </small></code>
+			</section>
 
-})()
-				</code>
-			</pre>
+
+
+			<section class="fragment">
+				<h5 class="fragment">Passer le bon message</h5>
+				<img src="img/image-asset.png" alt="" width="350" height="500">
+				<code><small>Source: Iraq’s casualties - Simon Scarr, South China Morning Post, 2011 </small></code>
 			</section>
 
 			<section>
-				<h2>Web scraper</h2>
-				<code>jsdom</code>
-				<pre>
-					<code>
-import {JSDOM} from 'jsdom';
+				<h5>Passer le bon message</h5>
+				<img src="img/iraq_inverse.png" alt="" width="350" height="500">
+				<code><small>Source: Iraq: Deaths on the Decline - Andy Cotgreave, 2014 </small></code>
+			</section>
 
-(async () => {
-  const response = await fetch('https://example.com');
-  const text = await response.text();
-  const dom = await new JSDOM(text);
-  console.log(dom.window.document.querySelector("h1").textContent);
-})()
-					</code>
-				</pre>
+			<section class="fragment">
+				<h5 class="fragment">Rapporter à la population</h5>
+				<img src="img/Screenshot_2022-04-28_22-10-29.png" alt="" width="700" height="500">
+				<code><small>Source: Try to impeach this — Karim Douieb, 2019 </small></code>
+			</section>
+
+			<section class="fragment">
+				<h5 class="fragment">Doser l'information</h5>
+				<img src="img/tumblr_p3utcdJEdu1sgh0voo1_1280.jpg" alt="">
+			</section>
+
+			<section class="fragment">
+				<h5 class="fragment">Utiliser la 3D avec précaution</h5>
+				<img src="img/aa959d6be07333834c540a138fecada9--line-chart-data-visualization.jpg" alt="">
+			</section>
+
+			<section class="fragment">
+				<h5 class="fragment">Cumulation trompeuse</h5>
+				<img src="img/ventes-cumulées.jpg" alt="">
+				<code><small>Source:  Cumulative iPad sales chart provided by Apple, 2013 </small></code>
+
 			</section>
 
 			<section>
-				<h2>Et si le site était dynamique?</h2>
+				<h5>Utiliser les bonnes couleurs</h5>
+				<p>8% de la population masculine est daltonienne (1/12)</p>
+				<img src="img/Be%20aware%20of%20colour%20blindness%201.png" alt="" width="900" height="450"/>
+				<code><small>Source: Dos and don’ts of data visualisation — European Environment Agency (eea.europa.eu) </small></code>
 			</section>
 
 			<section>
-				<h2>Web scraper</h2>
-				<h5><code>puppeteer</code></h5>
-
-				<ul>
-					<li>Screenshots</li>
-					<li>Automatisation de tâche</li>
-					<li>Tests fonctionnels</li>
-					<li>Scroll</li>
-				</ul>
-
-				<p>Et beaucoup d'autres fonctionnalités!</p>
-
-				<a href="https://github.com/checkly/puppeteer-examples">Exemples</a>
+				<h5>Tourner les diagrammes en bâtons</h5>
+				<img src="img/Rotate%20bar%20chart.png" alt="" width="900" height="450"/>
+				<code><small>Source: Dos and don’ts of data visualisation — European Environment Agency (eea.europa.eu) </small></code>
 			</section>
-
 
 			<section>
-				<h2>Puppeteer</h2>
-				<code>Syntaxe</code>
-				<pre>
-					<code class="hljs" data-trim data-noescape data-line-numbers="1|3,5,7,9|12-13|17|21|24|27-28">
-import puppeteer from 'puppeteer';
-
-(async () => {
-// Lancement browser
-  const browser = await puppeteer.launch();
-//Ouvrir une nouvelle page
-  const page = await browser.newPage();
-//Aller au lien example.com
-  await page.goto('https://example.com');
-
-//Sélecteurs
-await page.$(sélecteur); // document.querySelector
-await page.$$(sélecteur); // document.querySelectorAll
-// EXEMPLE : await page.$$(div);
-
-//Appliquer une fonction aux sélecteurs
-await page.$$eval(sélecteur, pageFunction[...args]);
-// EXEMPLE : const divCount = await page.$$eval('div', (divs) => divs.length);
-
-//Cliquer sur un selecteur
-await page.click(sélecteur);
-
-//Faire un screenshot
-await page.screenshot({ path: 'example.png' });
-
-// Fermer les browser
-await browser.close();
-})();
-
-					</code>
-				</pre>
+				<h5>Ordonner les données</h5>
+				<img src="img/sort%20data%20for%20easy%20comparisons%201.png" alt="" width="900" height="400"/>
+				<code><small>Source: Dos and don’ts of data visualisation — European Environment Agency (eea.europa.eu) </small></code>
 			</section>
-
-
 
 			<section>
 				<h2>Exercice</h2>
-				<p>Web scraping en pratique</p>
+				<p>Web scraping en pratique (rendu déplacé au 6 mai)</p>
 				<h2>Projet</h2>
+				<p>Rendu déplacé au 16 mai</p>
 				<p>Présentations mercredi 11- vendredi 13 mai</p>
-				<p>Calendrier</p>
+				<p>Calendrier <a href="https://cyberlearn.hes-so.ch/pluginfile.php/3874705/mod_resource/content/1/calendrier.pdf">ici</a></p>
 			</section>
 		</div>
 	</div>
 
-	<script src="dist/reveal.js"></script>
+	<script src="dist/reveal.js"></script><section>
+	<script src="dist/reveal.js"></script><section></section>
 	<script src="plugin/zoom/zoom.js"></script>
 	<script src="plugin/notes/notes.js"></script>
 	<script src="plugin/search/search.js"></script>
