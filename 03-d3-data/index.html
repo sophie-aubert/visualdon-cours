@@ -127,6 +127,34 @@
 
 			</section>
 
+
+
+			<section>
+				<h2><code>async, await</code></h2>
+				code asynchrone
+				<pre>
+			<code>
+(async () => {
+  try {
+    const result = await doSomething();
+    const newResult = await doSomethingElse(result);
+    const finalResult = await doThirdThing(newResult);
+    console.log(finalResult);
+  } catch(err) {
+    console.log(err);
+  }
+})();
+					</code>
+				</pre>
+			</section>
+
+			<section>
+				<h2><code>d3-fetch</code></h2>
+				<p>Doc: <a href="https://github.com/d3/d3-fetch/tree/v3.0.1"><code>d3-fetch</code></a></p>
+
+			</section>
+
+
 			<section>
 
 				<div class="row">
@@ -138,7 +166,7 @@
 		   // Dessiner ici!
 			  })
 		   .catch(function(error){
-		   // Gérer l'erreur ici!
+		   // Gérer les erreurs ici!
 			})
 						</code>
 						</pre>
@@ -150,10 +178,10 @@
 
 						<pre> <code>d3.json('url/ou/chemin/du/fichier.json')
 		   .then( function(data) {
-		   // Dessiner ici!
+		   // Dessiner ici
 			  })
 		   .catch(function(error){
-		   // Gérer l'erreur ici!
+		   // Gérer les erreurs ici
 			})
 						</code>
 						</pre>
@@ -167,110 +195,176 @@
 					<h2>Manipuler les données</h2>
 			</section>
 
-			<section >
-				<h5><code>array.<span class = "heig-red">map(function(currentValue, index, arr), thisValue)</span></code></h5>
-				<div class="row">
-					<div class="col-25">
-						<img src="img/csv.svg" alt="" >
-					</div>
-					<div class="col-75">
-					<pre><code data-line-numbers="3-5,11">d3.csv('chemin/du/fichier.csv')
-		.then( function(data) {
-				const prenoms = data.map((d, i) => {
-				return d.prenom;
-			    	});
-			 	})
-		.catch(function(error){
-				console.log(error);
-				})
 
-	// ["Alphonse","Béatrice","Charlotte"]
-					</code></pre>
-					</div>
+
+			<section>
+
+				<h3><code>Array.prototype.map()</code></h3>
+
+				<a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/map"><code>Array.prototype.map()</code></a>
+			<p>exemple Mozilla doc</p>
 			</section>
 
-			<section >
-				<h5><code>array.<span class = "heig-red">filter(condition)</span></code></h5>
-				<div class="row">
-					<div class="col-25">
-						<img src="img/csv.svg" alt="" >
-					</div>
-					<div class="col-75">
-					<pre><code data-line-numbers="3-6,11">d3.csv('chemin/du/fichier.csv')
-		.then( function(data) {
-				const now = 2022;
-				const retraite = data.filter((d, i) => {
-						retraite = now - d.anne_naissance;
-						return retraite >	 65 ;
-			    	});
-			 	})
-		.catch(function(error){
-				console.log(error);
-				})d3.csv('chemin/du/fichier.csv')
-		.then( function(data) {
-				const now = 2022;
-				const retraite = data.filter((d, i) => {
-						retraite = now - d.anne_naissance;
-						return retraite > 65 ;
-			    	});
-			 	})
-		.catch(function(error){
-				console.log(error);
-				})
+			<section>
 
-	// ["Alphonse", 1932]
-					</code></pre>
-					</div>
+				<h3><code>Array.prototype.filter()</code></h3>
+				<p>exemple Mozilla doc</p>
+
+				<a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/filter"><code>Array.prototype.filter()</code></a>
+
 			</section>
 
-			<section >
-				<h5><code>array.<span class = "heig-red">reduce(function(total, currentValue, currentIndex, arr), initialValue)</span></code></h5>
-				<div class="row">
-					<div class="col-25">
-						<img src="img/csv.svg" alt="" >
-					</div>
-					<div class="col-75">
-					<pre><code>d3.csv('chemin/du/fichier.csv')
-		.then( function(data) {
-				const start = 0;
-				const somme_annees = data.reduce((r, d) => {
-				r + d.annee_naissance, start
-			    	});
-			 	})
-		.catch(function(error){
-				console.log(error);
-				})
+			<section>
 
-	// 5884
-					</code></pre>
-					</div>
+				<h3><code>Array.prototype.includes()</code></h3>
+				<p>Mette exemple Mozilla doc</p>
+
+				<a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/includes"><code>Array.prototype.includes()</code></a>
+
 			</section>
 
 
-			<section >
-				<h5><code>array.<span class = "heig-red">reduce(function(total, currentValue, currentIndex, arr), initialValue)</span></code></h5>
-				<div class="row">
-					<div class="col-25">
-						<img src="img/json_reduce.svg" alt="" >
-					</div>
-					<div class="col-75">
-					<pre><code>d3.json('chemin/du/fichier.json')
-		.then( function(data) {
-				const notesParEleve = data.reduce((r, d) => {
-  				const notes =   || []
-  				return { ...r, [d.nom]: [...notes, d.note] }
-			}, {})
+			<section>
 
-			 	})
-		.catch(function(error){
-				console.log(error);
-				})
-		// { Alice: [5, 6], Bob: [4, 3] }
+				<h3><code>Array.prototype.pop()</code></h3>
 
+				<a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/pop"><code>Array.prototype.pop()</code></a>
 
-					</code></pre>
-					</div>
 			</section>
+
+			<section>
+
+				<h3><code>Array.prototype.push()</code></h3>
+
+				<a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/push"><code>Array.prototype.push()</code></a>
+
+			</section>
+
+			<section>
+
+				<h3><code>Array.prototype.reduce()</code></h3>
+
+				<a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce"><code>Array.prototype.reduce()</code></a>
+
+			</section>
+
+
+
+			<section>
+
+				<h3><code>Array.prototype.forEach()</code></h3>
+
+				<a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach"><code>Array.prototype.forEach()</code></a>
+
+			</section>
+
+
+
+
+			<!--			<section >-->
+<!--				<h5><code>array.<span class = "heig-red">map(function(currentValue, index, arr), thisValue)</span></code></h5>-->
+<!--				<div class="row">-->
+<!--					<div class="col-25">-->
+<!--						<img src="img/csv.svg" alt="" >-->
+<!--					</div>-->
+<!--					<div class="col-75">-->
+<!--					<pre><code data-line-numbers="3-5,11">d3.csv('chemin/du/fichier.csv')-->
+<!--		.then( function(data) {-->
+<!--				const prenoms = data.map((d, i) => {-->
+<!--				return d.prenom;-->
+<!--			    	});-->
+<!--			 	})-->
+<!--		.catch(function(error){-->
+<!--				console.log(error);-->
+<!--				})-->
+
+<!--	// ["Alphonse","Béatrice","Charlotte"]-->
+<!--					</code></pre>-->
+<!--					</div>-->
+<!--			</section>-->
+
+<!--			<section >-->
+<!--				<h5><code>array.<span class = "heig-red">filter(condition)</span></code></h5>-->
+<!--				<div class="row">-->
+<!--					<div class="col-25">-->
+<!--						<img src="img/csv.svg" alt="" >-->
+<!--					</div>-->
+<!--					<div class="col-75">-->
+<!--					<pre><code data-line-numbers="3-6,11">d3.csv('chemin/du/fichier.csv')-->
+<!--		.then( function(data) {-->
+<!--				const now = 2022;-->
+<!--				const retraite = data.filter((d, i) => {-->
+<!--						retraite = now - d.anne_naissance;-->
+<!--						return retraite >	 65 ;-->
+<!--			    	});-->
+<!--			 	})-->
+<!--		.catch(function(error){-->
+<!--				console.log(error);-->
+<!--				})d3.csv('chemin/du/fichier.csv')-->
+<!--		.then( function(data) {-->
+<!--				const now = 2022;-->
+<!--				const retraite = data.filter((d, i) => {-->
+<!--						retraite = now - d.anne_naissance;-->
+<!--						return retraite > 65 ;-->
+<!--			    	});-->
+<!--			 	})-->
+<!--		.catch(function(error){-->
+<!--				console.log(error);-->
+<!--				})-->
+
+<!--	// ["Alphonse", 1932]-->
+<!--					</code></pre>-->
+<!--					</div>-->
+<!--			</section>-->
+
+<!--			<section >-->
+<!--				<h5><code>array.<span class = "heig-red">reduce(function(total, currentValue, currentIndex, arr), initialValue)</span></code></h5>-->
+<!--				<div class="row">-->
+<!--					<div class="col-25">-->
+<!--						<img src="img/csv.svg" alt="" >-->
+<!--					</div>-->
+<!--					<div class="col-75">-->
+<!--					<pre><code>d3.csv('chemin/du/fichier.csv')-->
+<!--		.then( function(data) {-->
+<!--				const start = 0;-->
+<!--				const somme_annees = data.reduce((r, d) => {-->
+<!--				r + d.annee_naissance, start-->
+<!--			    	});-->
+<!--			 	})-->
+<!--		.catch(function(error){-->
+<!--				console.log(error);-->
+<!--				})-->
+
+<!--	// 5884-->
+<!--					</code></pre>-->
+<!--					</div>-->
+<!--			</section>-->
+
+
+<!--			<section >-->
+<!--				<h5><code>array.<span class = "heig-red">reduce(function(total, currentValue, currentIndex, arr), initialValue)</span></code></h5>-->
+<!--				<div class="row">-->
+<!--					<div class="col-25">-->
+<!--						<img src="img/json_reduce.svg" alt="" >-->
+<!--					</div>-->
+<!--					<div class="col-75">-->
+<!--					<pre><code>d3.json('chemin/du/fichier.json')-->
+<!--		.then( function(data) {-->
+<!--				const notesParEleve = data.reduce((r, d) => {-->
+<!--  				const notes =   || []-->
+<!--  				return { ...r, [d.nom]: [...notes, d.note] }-->
+<!--			}, {})-->
+
+<!--			 	})-->
+<!--		.catch(function(error){-->
+<!--				console.log(error);-->
+<!--				})-->
+<!--		// { Alice: [5, 6], Bob: [4, 3] }-->
+
+
+<!--					</code></pre>-->
+<!--					</div>-->
+<!--			</section>-->
 
 			<section>
 				<h2>Projet</h2>

@@ -77,6 +77,11 @@
 			</section>
 
 			<section>
+				<h2>Documentation</h2>
+				<a href="https://github.com/d3/d3/blob/main/API.md"><code>Github: API reference</code></a>
+			</section>
+
+			<section>
 				<h2>DOM</h2>
 				<p><span class="heig-red">D</span>ocument <span class="heig-red">O</span>bject <span class="heig-red">M</span>odel</p>
 				<small><blockquote>
@@ -92,10 +97,10 @@
 
 				<code>
 					<span class="heig-red">objet</span>.methode1() <br>
-						  .methode2() <br>
-						  .methode3()
+					.methode2() <br>
+					.methode3()
 				</code>
-				<pre><code >
+				<pre><code>
 					d3.select("body")
 					  .append("p")
 					  .text("Nouveau paragraphe")
@@ -104,7 +109,8 @@
 
 
 			<section>
-				<h2>Sélecteurs</h2>
+				<h2>Sélections</h2>
+				<h5> <code class="heig-red">d3-selection</code></h5>
 
 				<code><span class="heig-red">d3</span>.select(<em>sélecteur</em>)</code>
 				<code><span class="heig-red">d3</span>.selectAll(<em>sélecteur</em>)</code>
@@ -140,6 +146,8 @@
 
 			<section >
 				<h2>Attributs</h2>
+				<h5> <code class="heig-red">d3-selection</code></h5>
+
 
 				<code>.attr('propriete','valeur')</code>
 				<div  class="row no-margin-top">
@@ -168,6 +176,7 @@
 
 			<section data-auto-animate>
 				<h2>Attributs</h2>
+				<h5> <code class="heig-red">d3-selection</code></h5>
 
 				<code>.attr('propriete','valeur')</code>
 				<div class="row no-margin-top">
@@ -196,12 +205,14 @@
 
 			<section>
 				<h2>Append</h2>
+				<h5><code class="heig-red">d3-selection</code></h5>
 				<code>selection.append("element-html")</code>
 				<div class="row no-margin-top">
 					<div class="col-60">
 
 				<pre><code data-trim>
-	<div class = 'mon-svg'></div>
+
+					<div class = 'mon-svg'></div>
 	<script>
 	const WIDTH = 300
     const HEIGHT = 100
@@ -226,6 +237,8 @@
 
 			<section>
 				<h2>Événements</h2>
+				<h5><code class="heig-red">d3-selection</code></h5>
+
 				<code>.on("event", fonctions)</code>
 				<div class="row no-margin-top">
 					<div class="col-60">
@@ -255,8 +268,16 @@
 
 
 			<section>
-			<h2>Joindre les données</h2>
+			<h2>Joindre les données</h2
+				<p>Doc: <a href="https://github.com/d3/d3-selection/blob/v3.0.0/README.md#joining-data">Joining data</a></p>
 				<code>.data(données).enter().do_something()</code>
+
+				<p>Mieux expliquer ces concepts</p>
+				<code>selection.data</code>
+				<code>selection.enter</code>
+				<code>selection.join</code>
+				<code>selection.exit</code>
+
 
 				<div class="row no-margin-top">
 					<div class="col-60">
@@ -312,7 +333,7 @@
 
 			<section>
 				<h2>Exercices</h2>
-				<p><span class="heig-red">Rajouter dossier du cours en upstream</span> <br> <small><code>git remote add upstream git@github.com:romanoe/visualdon-22.git</code></p></small>
+				<p><span class="heig-red">Rajouter dossier du cours en upstream</span> <br> <small><code>git remote add upstream git@github.com:romanoe/visualdon-exercices.git</code></p></small>
 				<p><span class="heig-red">Mettre à jour</span> <br> <small><code>git fetch upstream</code></p></small>
 			</section>
 
