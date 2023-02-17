@@ -41,10 +41,10 @@ Les détails du projet sont décrits [ici](https://github.com/romanoe/visualdon-
 
 ### Délais
 
-* Vendredi 11 mars 23h59: Thématique (10%)
-* Vendredi 18 mars 23h59: Wireframe (10%)
-* Vendredi 6 mai 23h59: Site web (60%)
-* Mercredi 11 mai, vendredi 13 mai: Présentation (20%)
+* Vendredi 10 mars 23h59: Thématique (10%)
+* Vendredi 17 mars 23h59: Wireframe (10%)
+* Mercredi 10 mai, vendredi 12 mai: Présentation (20%)
+* Lundi 15 mai 23h59: Site web (60%)
 
 ## Exercices 
 * Disponibles sur https://github.com/romanoe/visualdon-exercices
